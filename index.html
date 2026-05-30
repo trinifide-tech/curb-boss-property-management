@@ -487,6 +487,7 @@
         min-height: 100%;
       }
 
+      .income-tracker,
       .inspection-command,
       .repair-tracker,
       .receipt-tracker {
@@ -527,6 +528,7 @@
         white-space: nowrap;
       }
 
+      .income-summary,
       .inspection-summary,
       .receipt-summary,
       .repair-summary {
@@ -536,10 +538,12 @@
         margin: 1.2rem 0;
       }
 
+      .income-summary,
       .repair-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
 
+      .income-summary-card,
       .inspection-summary-card,
       .receipt-summary-card,
       .repair-summary-card {
@@ -549,6 +553,7 @@
         background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
       }
 
+      .income-summary-card span,
       .inspection-summary-card span,
       .receipt-summary-card span,
       .repair-summary-card span {
@@ -561,6 +566,7 @@
         text-transform: uppercase;
       }
 
+      .income-summary-card strong,
       .inspection-summary-card strong,
       .receipt-summary-card strong,
       .repair-summary-card strong {
@@ -571,6 +577,7 @@
         letter-spacing: -0.06em;
       }
 
+      .income-grid,
       .inspection-grid,
       .repair-grid,
       .receipt-grid {
@@ -579,10 +586,12 @@
         gap: 0.9rem;
       }
 
+      .income-grid,
       .repair-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .income-card,
       .inspection-card,
       .repair-card,
       .receipt-card {
@@ -593,6 +602,7 @@
         box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
       }
 
+      .income-card h3,
       .inspection-card h3,
       .repair-card h3,
       .receipt-card h3 {
@@ -603,6 +613,7 @@
         letter-spacing: -0.035em;
       }
 
+      .income-meta,
       .inspection-meta,
       .repair-meta,
       .receipt-meta {
@@ -611,6 +622,7 @@
         margin: 0;
       }
 
+      .income-meta div,
       .inspection-meta div,
       .repair-meta div,
       .receipt-meta div {
@@ -622,6 +634,7 @@
         border-top: 1px solid var(--border);
       }
 
+      .income-meta dt,
       .inspection-meta dt,
       .repair-meta dt,
       .receipt-meta dt {
@@ -632,6 +645,7 @@
         text-transform: uppercase;
       }
 
+      .income-meta dd,
       .inspection-meta dd,
       .repair-meta dd,
       .receipt-meta dd {
@@ -721,6 +735,73 @@
 
       .status-chip.high::before {
         background: #d96b35;
+      }
+
+      .status-chip.paid,
+      .status-chip.rental {
+        background: var(--deep-green-3);
+      }
+
+      .status-chip.unpaid,
+      .status-chip.late {
+        background: #fce9df;
+        color: #79351d;
+      }
+
+      .status-chip.unpaid::before,
+      .status-chip.late::before {
+        background: #d96b35;
+      }
+
+      .income-badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin: -0.2rem 0 1rem;
+      }
+
+      .income-history {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 1.1rem;
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
+      }
+
+      .income-history h3 {
+        margin-bottom: 0.85rem;
+        color: var(--deep-green);
+        font-size: 1.08rem;
+        letter-spacing: -0.035em;
+      }
+
+      .history-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 0.55rem;
+      }
+
+      .history-month {
+        padding: 0.75rem 0.55rem;
+        border: 1px solid rgba(11, 61, 53, 0.12);
+        border-radius: 0.85rem;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .history-month span {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .history-month strong {
+        color: var(--deep-green);
+        font-size: 0.95rem;
       }
 
       .detail-card h3 {
@@ -910,14 +991,20 @@
 
         .property-detail-grid,
         .property-dashboard-grid,
+        .income-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
+        .income-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
         .tax-categories {
           grid-template-columns: repeat(2, 1fr);
+        }
+
+        .history-grid {
+          grid-template-columns: repeat(6, minmax(0, 1fr));
         }
       }
 
@@ -948,9 +1035,11 @@
         .property-stats,
         .property-detail-grid,
         .property-dashboard-grid,
+        .income-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
+        .income-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
@@ -959,10 +1048,15 @@
           grid-template-columns: 1fr;
         }
 
+        .income-meta div,
         .inspection-meta div,
         .repair-meta div,
         .receipt-meta div {
           grid-template-columns: 1fr;
+        }
+
+        .history-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
     </style>
@@ -979,7 +1073,7 @@
           <ul class="nav-list">
             <li><a class="nav-link active" href="#dashboard">Dashboard</a></li>
             <li><a class="nav-link" href="#properties">Properties</a></li>
-            <li><a class="nav-link" href="#income">Income</a></li>
+            <li><a class="nav-link" href="#income-rent-tracker">Income</a></li>
             <li><a class="nav-link" href="#expenses">Expenses</a></li>
             <li><a class="nav-link" href="#inspections">Inspections</a></li>
             <li><a class="nav-link" href="#inspection-command-center">Command Center</a></li>
@@ -988,7 +1082,7 @@
             <li><a class="nav-link" href="#tax-summary">Tax Summary</a></li>
           </ul>
         </nav>
-        <div class="sidebar-note">Static MVP dashboard: no login, forms, uploads, payments, database, or backend connected yet.</div>
+        <div class="sidebar-note">Static MVP dashboard: no login, forms, uploads, payments, payment processing, database, or backend connected yet.</div>
       </aside>
 
       <div class="main-panel">
@@ -1004,7 +1098,7 @@
         <nav class="mobile-nav" aria-label="Primary navigation">
           <a href="#dashboard">Dashboard</a>
           <a href="#properties">Properties</a>
-          <a href="#income">Income</a>
+          <a href="#income-rent-tracker">Income</a>
           <a href="#expenses">Expenses</a>
           <a href="#inspections">Inspections</a>
           <a href="#inspection-command-center">Command Center</a>
@@ -1077,6 +1171,143 @@
             <div>
               <p class="metric-value">5</p>
               <p class="metric-note">Track missing receipts to keep deductions organized.</p>
+            </div>
+          </section>
+
+          <section class="card income-tracker" id="income-rent-tracker" aria-labelledby="income-rent-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Income &amp; Rent Tracker</p>
+                <h2 id="income-rent-title">Rent income preview for 41 N Ellamont St</h2>
+                <p>Preview monthly income, payment status, rent due dates, unpaid rent, and income history in one static rent workspace with no payments or payment processing.</p>
+              </div>
+              <div class="section-pill">Income preview only</div>
+            </div>
+
+            <div class="income-summary" aria-label="Income and rent summary">
+              <div class="income-summary-card">
+                <span>Monthly Income</span>
+                <strong>$4,954</strong>
+              </div>
+              <div class="income-summary-card">
+                <span>Paid This Month</span>
+                <strong>$4,954</strong>
+              </div>
+              <div class="income-summary-card">
+                <span>Unpaid Rent</span>
+                <strong>$0</strong>
+              </div>
+              <div class="income-summary-card">
+                <span>Late Payments</span>
+                <strong>0</strong>
+              </div>
+              <div class="income-summary-card">
+                <span>Average Monthly Income</span>
+                <strong>$3,349</strong>
+              </div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Income status badge examples">
+              <span class="status-chip paid">Paid</span>
+              <span class="status-chip unpaid">Unpaid</span>
+              <span class="status-chip late">Late</span>
+              <span class="status-chip rental">Rental Income</span>
+              <span class="status-chip ready">Tax Ready</span>
+            </div>
+
+            <div class="income-grid" aria-label="Income and rent cards">
+              <article class="income-card">
+                <h3>Room Rental Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Room rental / furnished rental</dd></div>
+                  <div><dt>Amount</dt><dd>$4,954</dd></div>
+                  <div><dt>Month</dt><dd>December</dd></div>
+                  <div><dt>Rent due</dt><dd>December 1</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Payment method</dt><dd>Zelle / direct payment</dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="income-card">
+                <h3>January Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rent due</dt><dd>January 1</dd></div>
+                  <div><dt>Amount</dt><dd>$4,278</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="income-card">
+                <h3>February Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rent due</dt><dd>February 1</dd></div>
+                  <div><dt>Amount</dt><dd>$1,286</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="income-card">
+                <h3>March Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rent due</dt><dd>March 1</dd></div>
+                  <div><dt>Amount</dt><dd>$2,887</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="income-card">
+                <h3>April Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rent due</dt><dd>April 1</dd></div>
+                  <div><dt>Amount</dt><dd>$2,690</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="income-card">
+                <h3>May Income</h3>
+                <dl class="income-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rent due</dt><dd>May 1</dd></div>
+                  <div><dt>Amount</dt><dd>$4,214</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Tax category</dt><dd><span class="status-chip rental">Rental Income</span></dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Tax Ready</span></dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="income-history" aria-labelledby="income-history-title">
+              <h3 id="income-history-title">Income History Preview</h3>
+              <div class="history-grid" aria-label="Monthly income totals">
+                <div class="history-month"><span>Jan</span><strong>$4,278</strong></div>
+                <div class="history-month"><span>Feb</span><strong>$1,286</strong></div>
+                <div class="history-month"><span>Mar</span><strong>$2,887</strong></div>
+                <div class="history-month"><span>Apr</span><strong>$2,690</strong></div>
+                <div class="history-month"><span>May</span><strong>$4,214</strong></div>
+                <div class="history-month"><span>Jun</span><strong>$2,734</strong></div>
+                <div class="history-month"><span>Jul</span><strong>$2,144</strong></div>
+                <div class="history-month"><span>Aug</span><strong>$3,133</strong></div>
+                <div class="history-month"><span>Sep</span><strong>$4,527</strong></div>
+                <div class="history-month"><span>Oct</span><strong>$2,612</strong></div>
+                <div class="history-month"><span>Nov</span><strong>$4,723</strong></div>
+                <div class="history-month"><span>Dec</span><strong>$4,954</strong></div>
+              </div>
             </div>
           </section>
 
@@ -1574,7 +1805,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, payments, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
