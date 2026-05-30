@@ -488,6 +488,7 @@
       }
 
       .income-tracker,
+      .expense-tracker,
       .inspection-command,
       .repair-tracker,
       .receipt-tracker {
@@ -529,6 +530,7 @@
       }
 
       .income-summary,
+      .expense-summary,
       .inspection-summary,
       .receipt-summary,
       .repair-summary {
@@ -539,11 +541,13 @@
       }
 
       .income-summary,
+      .expense-summary,
       .repair-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
 
       .income-summary-card,
+      .expense-summary-card,
       .inspection-summary-card,
       .receipt-summary-card,
       .repair-summary-card {
@@ -554,6 +558,7 @@
       }
 
       .income-summary-card span,
+      .expense-summary-card span,
       .inspection-summary-card span,
       .receipt-summary-card span,
       .repair-summary-card span {
@@ -567,6 +572,7 @@
       }
 
       .income-summary-card strong,
+      .expense-summary-card strong,
       .inspection-summary-card strong,
       .receipt-summary-card strong,
       .repair-summary-card strong {
@@ -578,6 +584,7 @@
       }
 
       .income-grid,
+      .expense-grid,
       .inspection-grid,
       .repair-grid,
       .receipt-grid {
@@ -592,6 +599,7 @@
       }
 
       .income-card,
+      .expense-card,
       .inspection-card,
       .repair-card,
       .receipt-card {
@@ -603,6 +611,7 @@
       }
 
       .income-card h3,
+      .expense-card h3,
       .inspection-card h3,
       .repair-card h3,
       .receipt-card h3 {
@@ -614,6 +623,7 @@
       }
 
       .income-meta,
+      .expense-meta,
       .inspection-meta,
       .repair-meta,
       .receipt-meta {
@@ -623,6 +633,7 @@
       }
 
       .income-meta div,
+      .expense-meta div,
       .inspection-meta div,
       .repair-meta div,
       .receipt-meta div {
@@ -635,6 +646,7 @@
       }
 
       .income-meta dt,
+      .expense-meta dt,
       .inspection-meta dt,
       .repair-meta dt,
       .receipt-meta dt {
@@ -646,6 +658,7 @@
       }
 
       .income-meta dd,
+      .expense-meta dd,
       .inspection-meta dd,
       .repair-meta dd,
       .receipt-meta dd {
@@ -738,8 +751,17 @@
       }
 
       .status-chip.paid,
-      .status-chip.rental {
+      .status-chip.rental,
+      .status-chip.one-time {
         background: var(--deep-green-3);
+      }
+
+      .status-chip.recurring {
+        background: var(--yellow-soft);
+      }
+
+      .status-chip.recurring::before {
+        background: var(--yellow);
       }
 
       .status-chip.unpaid,
@@ -992,10 +1014,12 @@
         .property-detail-grid,
         .property-dashboard-grid,
         .income-summary,
+        .expense-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
         .income-grid,
+        .expense-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
@@ -1036,10 +1060,12 @@
         .property-detail-grid,
         .property-dashboard-grid,
         .income-summary,
+        .expense-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
         .income-grid,
+        .expense-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
@@ -1049,6 +1075,7 @@
         }
 
         .income-meta div,
+        .expense-meta div,
         .inspection-meta div,
         .repair-meta div,
         .receipt-meta div {
@@ -1074,7 +1101,7 @@
             <li><a class="nav-link active" href="#dashboard">Dashboard</a></li>
             <li><a class="nav-link" href="#properties">Properties</a></li>
             <li><a class="nav-link" href="#income-rent-tracker">Income</a></li>
-            <li><a class="nav-link" href="#expenses">Expenses</a></li>
+            <li><a class="nav-link" href="#expense-tracker">Expenses</a></li>
             <li><a class="nav-link" href="#inspections">Inspections</a></li>
             <li><a class="nav-link" href="#inspection-command-center">Command Center</a></li>
             <li><a class="nav-link" href="#repair-maintenance-tracker">Repairs</a></li>
@@ -1099,7 +1126,7 @@
           <a href="#dashboard">Dashboard</a>
           <a href="#properties">Properties</a>
           <a href="#income-rent-tracker">Income</a>
-          <a href="#expenses">Expenses</a>
+          <a href="#expense-tracker">Expenses</a>
           <a href="#inspections">Inspections</a>
           <a href="#inspection-command-center">Command Center</a>
           <a href="#repair-maintenance-tracker">Repairs</a>
@@ -1308,6 +1335,159 @@
                 <div class="history-month"><span>Nov</span><strong>$4,723</strong></div>
                 <div class="history-month"><span>Dec</span><strong>$4,954</strong></div>
               </div>
+            </div>
+          </section>
+
+          <section class="card expense-tracker" id="expense-tracker" aria-labelledby="expense-tracker-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Expense Tracker</p>
+                <h2 id="expense-tracker-title">Expense preview for 41 N Ellamont St</h2>
+                <p>Preview property expenses, monthly costs, deduction categories, and receipt status in one static workspace with no uploads or form submissions.</p>
+              </div>
+              <div class="section-pill">Expense preview only</div>
+            </div>
+
+            <div class="expense-summary" aria-label="Expense summary">
+              <div class="expense-summary-card">
+                <span>Monthly Expenses</span>
+                <strong>$1,860</strong>
+              </div>
+              <div class="expense-summary-card">
+                <span>Deductible Expenses</span>
+                <strong>$1,540</strong>
+              </div>
+              <div class="expense-summary-card">
+                <span>Missing Receipts</span>
+                <strong>5</strong>
+              </div>
+              <div class="expense-summary-card">
+                <span>Recurring Expenses</span>
+                <strong>6</strong>
+              </div>
+              <div class="expense-summary-card">
+                <span>One-Time Repairs</span>
+                <strong>3</strong>
+              </div>
+            </div>
+
+            <div class="expense-grid" aria-label="Expense cards">
+              <article class="expense-card">
+                <h3>BGE Utility Bill</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$257</dd></div>
+                  <div><dt>Category</dt><dd>Utilities</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Monthly / recurring</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Utilities</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Water Bill</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$190</dd></div>
+                  <div><dt>Category</dt><dd>Utilities</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Monthly / recurring</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Utilities</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Internet</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$65</dd></div>
+                  <div><dt>Category</dt><dd>Internet</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Monthly</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Utilities / Internet</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Security Monitoring</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$29</dd></div>
+                  <div><dt>Category</dt><dd>Security</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Monthly</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Property security</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Professional Cleaners</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$200</dd></div>
+                  <div><dt>Category</dt><dd>Cleaning</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Every two weeks</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Cleaning</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Cleaning Supplies</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$350</dd></div>
+                  <div><dt>Category</dt><dd>Supplies</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip low">Occasional</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Missing</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Supplies / Cleaning</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip missing">Needs receipt</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Plumber</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$350</dd></div>
+                  <div><dt>Category</dt><dd>Repairs</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip one-time">One-Time</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Repairs</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Property Taxes</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$1,679.70</dd></div>
+                  <div><dt>Category</dt><dd>Property Taxes</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip one-time">Annual</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Property taxes</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="expense-card">
+                <h3>Mileage</h3>
+                <dl class="expense-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Amount</dt><dd>$520</dd></div>
+                  <div><dt>Category</dt><dd>Mileage</dd></div>
+                  <div><dt>Frequency</dt><dd><span class="status-chip recurring">Monthly</span></dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip review">Needs mileage log</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Mileage</dd></div>
+                  <div><dt>Deduction status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                </dl>
+              </article>
             </div>
           </section>
 
