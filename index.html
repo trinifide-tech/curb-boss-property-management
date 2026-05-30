@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Curb Boss Property Management</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --brand: #0f3d3e;
+        --brand-dark: #092728;
+        --accent: #f4b942;
+        --surface: #ffffff;
+        --muted: #5d6970;
+        --background: #eef4f2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, var(--background), #ffffff 45%, #f9f4e6);
+        color: var(--brand-dark);
+        min-height: 100vh;
+      }
+
+      header {
+        padding: 1.25rem clamp(1rem, 4vw, 3rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .logo-mark {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: grid;
+        place-items: center;
+        border-radius: 0.85rem;
+        background: var(--brand);
+        color: var(--accent);
+        box-shadow: 0 12px 28px rgba(15, 61, 62, 0.18);
+      }
+
+      main {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 3rem 0 4rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(15, 61, 62, 0.1);
+        border-radius: 2rem;
+        padding: clamp(1.5rem, 4vw, 3rem);
+        box-shadow: 0 22px 60px rgba(15, 61, 62, 0.12);
+        backdrop-filter: blur(16px);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: var(--brand);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        line-height: 0.95;
+        letter-spacing: -0.08em;
+      }
+
+      .intro {
+        max-width: 42rem;
+        margin: 1.25rem 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.7;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 2rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0 1.25rem;
+        border-radius: 999px;
+        border: 0;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        background: var(--brand);
+        color: #ffffff;
+      }
+
+      .button.secondary {
+        background: #ffffff;
+        color: var(--brand);
+        border: 1px solid rgba(15, 61, 62, 0.16);
+      }
+
+      .info-panel {
+        background: var(--brand);
+        color: #ffffff;
+        border-radius: 2rem;
+        padding: 2rem;
+        min-height: 24rem;
+        display: grid;
+        align-content: center;
+        box-shadow: 0 28px 70px rgba(15, 61, 62, 0.26);
+      }
+
+      .info-panel h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        letter-spacing: -0.05em;
+      }
+
+      .info-panel p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.7;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .service {
+        background: var(--surface);
+        border: 1px solid rgba(15, 61, 62, 0.1);
+        border-radius: 1.25rem;
+        padding: 1.25rem;
+      }
+
+      .service strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--brand);
+      }
+
+      .service span {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      footer {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 0 0 2rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo" aria-label="Curb Boss Property Management home">
+        <span class="logo-mark">CB</span>
+        <span>Curb Boss Property Management</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-card">
+          <span class="eyebrow">Property care made simple</span>
+          <h1 id="page-title">Curb Boss Property Management</h1>
+          <p class="intro">
+            View the core business information on this page: Curb Boss Property Management helps property owners keep homes, rentals, and curb appeal projects organized from first contact to final walkthrough.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="mailto:hello@curbboss.example">Contact Curb Boss</a>
+            <a class="button secondary" href="#services">View services</a>
+          </div>
+        </div>
+
+        <aside class="info-panel" aria-label="Business overview">
+          <h2>Reliable property support for busy owners.</h2>
+          <p>
+            Use this page as the starting point for the Curb Boss Property Management site. It can be expanded with real contact details, service areas, client forms, and maintenance request flows.
+          </p>
+        </aside>
+      </section>
+
+      <section id="services" class="services" aria-label="Services">
+        <article class="service">
+          <strong>Property oversight</strong>
+          <span>Coordinate routine check-ins, vendor visits, and property condition updates.</span>
+        </article>
+        <article class="service">
+          <strong>Maintenance coordination</strong>
+          <span>Track requests, prioritize repairs, and keep owners informed.</span>
+        </article>
+        <article class="service">
+          <strong>Curb appeal planning</strong>
+          <span>Organize exterior improvements that make properties look cared for.</span>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      Open <strong>index.html</strong> in a browser, or run a local server, to view this page.
+    </footer>
+  </body>
+</html>
