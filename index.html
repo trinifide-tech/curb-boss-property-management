@@ -432,7 +432,7 @@
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.85rem;
         margin-top: 0.85rem;
       }
@@ -460,9 +460,31 @@
         line-height: 1.35;
       }
 
+      .property-note {
+        position: relative;
+        z-index: 1;
+        margin: 1rem 0 0;
+        padding: 1rem 1.1rem;
+        border: 1px solid rgba(244, 197, 66, 0.32);
+        border-radius: 1rem;
+        background: rgba(255, 246, 217, 0.1);
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.55;
+      }
+
+      .property-dashboard-grid {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
       .detail-card {
-        grid-column: span 3;
         padding: 1.15rem;
+      }
+
+      .property-dashboard-grid .detail-card {
+        min-height: 100%;
       }
 
       .detail-card h3 {
@@ -641,17 +663,19 @@
         }
 
         .metric-card,
-        .actions-card,
-        .detail-card {
+        .actions-card {
           grid-column: span 6;
         }
 
-        .property-card {
+        .property-card,
+        .property-dashboard-grid {
           grid-column: span 12;
         }
 
+        .property-detail-grid,
+        .property-dashboard-grid,
         .tax-categories {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
@@ -680,13 +704,10 @@
 
         .property-stats,
         .property-detail-grid,
+        .property-dashboard-grid,
         .quick-actions,
         .tax-categories {
           grid-template-columns: 1fr;
-        }
-
-        .detail-card {
-          grid-column: span 12;
         }
       }
     </style>
@@ -775,7 +796,7 @@
               <span class="metric-icon" aria-hidden="true">✓</span>
             </div>
             <div>
-              <p class="metric-value">3</p>
+              <p class="metric-value">4</p>
               <p class="metric-note">Walkthroughs and safety reviews due soon.</p>
             </div>
           </section>
@@ -786,7 +807,7 @@
               <span class="metric-icon" aria-hidden="true">!</span>
             </div>
             <div>
-              <p class="metric-value">2</p>
+              <p class="metric-value">4</p>
               <p class="metric-note">Pending maintenance items need follow-up.</p>
             </div>
           </section>
@@ -803,11 +824,11 @@
           </section>
 
           <section class="card property-card" id="properties" aria-labelledby="property-title">
-            <p class="section-kicker">Detailed property profile</p>
+            <p class="section-kicker">Step 3 property detail dashboard</p>
             <div class="property-header">
               <div>
                 <h2 id="property-title">41 N Ellamont St</h2>
-                <p class="property-subtitle">Rental type: Room rental / furnished rental</p>
+                <p class="property-subtitle">Room rental / furnished rental property profile</p>
               </div>
               <span class="status-badge"><span class="status-dot" aria-hidden="true"></span>Status: Active</span>
             </div>
@@ -821,90 +842,80 @@
                 <strong>Active room rental</strong>
               </div>
               <div class="property-stat">
-                <span>Tax status</span>
-                <strong>In progress</strong>
-              </div>
-            </div>
-            <div class="property-detail-grid" aria-label="Detailed property tasks">
-              <div class="property-detail">
-                <span>Next inspection</span>
-                <strong>Mold / moisture follow-up</strong>
-              </div>
-              <div class="property-detail">
-                <span>Open repairs</span>
-                <strong>Flooring review, HVAC filter check</strong>
-              </div>
-              <div class="property-detail">
-                <span>Missing receipts</span>
-                <strong>Cleaning supplies, mileage, repairs</strong>
-              </div>
-              <div class="property-detail">
-                <span>Tax status</span>
+                <span>Tax tracking</span>
                 <strong>Deduction tracking in progress</strong>
               </div>
             </div>
+            <div class="property-detail-grid" aria-label="41 N Ellamont St details">
+              <div class="property-detail">
+                <span>Property name</span>
+                <strong>41 N Ellamont St</strong>
+              </div>
+              <div class="property-detail">
+                <span>Rental type</span>
+                <strong>Room rental / furnished rental</strong>
+              </div>
+              <div class="property-detail">
+                <span>Status</span>
+                <strong>Active</strong>
+              </div>
+              <div class="property-detail">
+                <span>Monthly income</span>
+                <strong>$4,954</strong>
+              </div>
+            </div>
+            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
-          <section class="card detail-card" aria-labelledby="upcoming-inspections-table">
-            <p class="section-kicker">Property follow-up</p>
-            <h3 id="upcoming-inspections-table">Upcoming Inspections</h3>
-            <table class="mini-table">
-              <tbody>
-                <tr>
-                  <th scope="row">Next inspection</th>
-                  <td>Mold / moisture follow-up</td>
-                </tr>
-                <tr>
-                  <th scope="row">Property</th>
-                  <td>41 N Ellamont St</td>
-                </tr>
-                <tr>
-                  <th scope="row">Priority</th>
-                  <td>Check bathroom moisture, room ventilation, and basement humidity.</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+          <div class="property-dashboard-grid" aria-label="41 N Ellamont St task cards">
+            <section class="card detail-card" aria-labelledby="upcoming-inspections-table">
+              <p class="section-kicker">Property follow-up</p>
+              <h3 id="upcoming-inspections-table">Upcoming Inspections</h3>
+              <ul class="mini-list">
+                <li>Mold / moisture follow-up</li>
+                <li>HVAC filter check</li>
+                <li>Plumbing review</li>
+                <li>Smoke / CO detector check</li>
+              </ul>
+            </section>
 
-          <section class="card detail-card" aria-labelledby="open-repairs-table">
-            <p class="section-kicker">Maintenance</p>
-            <h3 id="open-repairs-table">Open Repairs</h3>
-            <ul class="mini-list">
-              <li>Flooring review for high-traffic furnished rental areas.</li>
-              <li>HVAC filter check before the next room turnover.</li>
-            </ul>
-          </section>
+            <section class="card detail-card" aria-labelledby="open-repairs-table">
+              <p class="section-kicker">Maintenance</p>
+              <h3 id="open-repairs-table">Open Repairs</h3>
+              <ul class="mini-list">
+                <li>Flooring review</li>
+                <li>HVAC filter check</li>
+                <li>Moisture / basement condition</li>
+                <li>General maintenance follow-up</li>
+              </ul>
+            </section>
 
-          <section class="card detail-card" aria-labelledby="missing-receipts-table">
-            <p class="section-kicker">Receipts</p>
-            <h3 id="missing-receipts-table">Missing Receipts</h3>
-            <ul class="mini-list">
-              <li>Cleaning supplies receipt for shared spaces.</li>
-              <li>Mileage log for property visits and supply runs.</li>
-              <li>Repairs receipt for active maintenance tracking.</li>
-            </ul>
-          </section>
+            <section class="card detail-card" aria-labelledby="missing-receipts-table">
+              <p class="section-kicker">Receipts</p>
+              <h3 id="missing-receipts-table">Missing Receipts</h3>
+              <ul class="mini-list">
+                <li>Cleaning supplies</li>
+                <li>Mileage</li>
+                <li>Repairs</li>
+                <li>Utilities</li>
+                <li>Supplies</li>
+              </ul>
+            </section>
 
-          <section class="card detail-card" aria-labelledby="tax-deduction-snapshot">
-            <p class="section-kicker">Tax readiness</p>
-            <h3 id="tax-deduction-snapshot">Tax Deduction Snapshot</h3>
-            <table class="mini-table">
-              <tbody>
-                <tr>
-                  <th scope="row">Status</th>
-                  <td>Deduction tracking in progress</td>
-                </tr>
-                <tr>
-                  <th scope="row">Focus areas</th>
-                  <td>Utilities, cleaning, repairs, inspections, supplies, mileage, and property taxes.</td>
-                </tr>
-                <tr>
-                  <th scope="row">Tracked this month</th>
-                  <td><span class="snapshot-amount">$1,860</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+            <section class="card detail-card" aria-labelledby="tax-deduction-snapshot">
+              <p class="section-kicker">Tax readiness</p>
+              <h3 id="tax-deduction-snapshot">Tax Deduction Snapshot</h3>
+              <ul class="mini-list">
+                <li>Utilities</li>
+                <li>Cleaning</li>
+                <li>Repairs</li>
+                <li>Inspections</li>
+                <li>Supplies</li>
+                <li>Mileage</li>
+                <li>Property Taxes</li>
+              </ul>
+            </section>
+          </div>
 
           <section class="card actions-card" aria-labelledby="quick-actions-title">
             <p class="section-kicker">Quick actions</p>
