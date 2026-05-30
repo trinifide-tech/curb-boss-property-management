@@ -331,7 +331,7 @@
       }
 
       .property-card {
-        grid-column: span 7;
+        grid-column: span 12;
         padding: clamp(1.2rem, 3vw, 2rem);
         background: linear-gradient(145deg, var(--deep-green), var(--deep-green-2));
         color: #ffffff;
@@ -426,6 +426,106 @@
       .property-stat strong {
         display: block;
         font-size: 1.18rem;
+      }
+
+      .property-detail-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 0.85rem;
+      }
+
+      .property-detail {
+        padding: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .property-detail span {
+        display: block;
+        margin-bottom: 0.35rem;
+        color: rgba(255, 255, 255, 0.66);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .property-detail strong {
+        display: block;
+        color: #ffffff;
+        line-height: 1.35;
+      }
+
+      .detail-card {
+        grid-column: span 3;
+        padding: 1.15rem;
+      }
+
+      .detail-card h3 {
+        margin-bottom: 0.75rem;
+        color: var(--deep-green);
+        font-size: 1.08rem;
+        letter-spacing: -0.03em;
+      }
+
+      .mini-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .mini-table th,
+      .mini-table td {
+        padding: 0.72rem 0;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .mini-table th {
+        width: 42%;
+        color: var(--ink);
+        font-weight: 900;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 0.65rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .mini-list li {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-start;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .mini-list li::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        margin-top: 0.42rem;
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: var(--yellow);
+      }
+
+      .snapshot-amount {
+        display: block;
+        margin-top: 0.25rem;
+        color: var(--deep-green);
+        font-size: 1.65rem;
+        font-weight: 950;
+        letter-spacing: -0.06em;
       }
 
       .actions-card {
@@ -541,9 +641,13 @@
         }
 
         .metric-card,
-        .property-card,
-        .actions-card {
+        .actions-card,
+        .detail-card {
           grid-column: span 6;
+        }
+
+        .property-card {
+          grid-column: span 12;
         }
 
         .tax-categories {
@@ -575,9 +679,14 @@
         }
 
         .property-stats,
+        .property-detail-grid,
         .quick-actions,
         .tax-categories {
           grid-template-columns: 1fr;
+        }
+
+        .detail-card {
+          grid-column: span 12;
         }
       }
     </style>
@@ -694,7 +803,7 @@
           </section>
 
           <section class="card property-card" id="properties" aria-labelledby="property-title">
-            <p class="section-kicker">Sample property</p>
+            <p class="section-kicker">Detailed property profile</p>
             <div class="property-header">
               <div>
                 <h2 id="property-title">41 N Ellamont St</h2>
@@ -702,20 +811,99 @@
               </div>
               <span class="status-badge"><span class="status-dot" aria-hidden="true"></span>Status: Active</span>
             </div>
-            <div class="property-stats" aria-label="Property details">
+            <div class="property-stats" aria-label="Property summary">
               <div class="property-stat">
                 <span>Monthly income</span>
                 <strong>$4,954</strong>
               </div>
               <div class="property-stat">
-                <span>Rental type</span>
-                <strong>Furnished</strong>
+                <span>Occupancy</span>
+                <strong>Active room rental</strong>
               </div>
               <div class="property-stat">
-                <span>Next priority</span>
-                <strong>Inspection</strong>
+                <span>Tax status</span>
+                <strong>In progress</strong>
               </div>
             </div>
+            <div class="property-detail-grid" aria-label="Detailed property tasks">
+              <div class="property-detail">
+                <span>Next inspection</span>
+                <strong>Mold / moisture follow-up</strong>
+              </div>
+              <div class="property-detail">
+                <span>Open repairs</span>
+                <strong>Flooring review, HVAC filter check</strong>
+              </div>
+              <div class="property-detail">
+                <span>Missing receipts</span>
+                <strong>Cleaning supplies, mileage, repairs</strong>
+              </div>
+              <div class="property-detail">
+                <span>Tax status</span>
+                <strong>Deduction tracking in progress</strong>
+              </div>
+            </div>
+          </section>
+
+          <section class="card detail-card" aria-labelledby="upcoming-inspections-table">
+            <p class="section-kicker">Property follow-up</p>
+            <h3 id="upcoming-inspections-table">Upcoming Inspections</h3>
+            <table class="mini-table">
+              <tbody>
+                <tr>
+                  <th scope="row">Next inspection</th>
+                  <td>Mold / moisture follow-up</td>
+                </tr>
+                <tr>
+                  <th scope="row">Property</th>
+                  <td>41 N Ellamont St</td>
+                </tr>
+                <tr>
+                  <th scope="row">Priority</th>
+                  <td>Check bathroom moisture, room ventilation, and basement humidity.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="card detail-card" aria-labelledby="open-repairs-table">
+            <p class="section-kicker">Maintenance</p>
+            <h3 id="open-repairs-table">Open Repairs</h3>
+            <ul class="mini-list">
+              <li>Flooring review for high-traffic furnished rental areas.</li>
+              <li>HVAC filter check before the next room turnover.</li>
+            </ul>
+          </section>
+
+          <section class="card detail-card" aria-labelledby="missing-receipts-table">
+            <p class="section-kicker">Receipts</p>
+            <h3 id="missing-receipts-table">Missing Receipts</h3>
+            <ul class="mini-list">
+              <li>Cleaning supplies receipt for shared spaces.</li>
+              <li>Mileage log for property visits and supply runs.</li>
+              <li>Repairs receipt for active maintenance tracking.</li>
+            </ul>
+          </section>
+
+          <section class="card detail-card" aria-labelledby="tax-deduction-snapshot">
+            <p class="section-kicker">Tax readiness</p>
+            <h3 id="tax-deduction-snapshot">Tax Deduction Snapshot</h3>
+            <table class="mini-table">
+              <tbody>
+                <tr>
+                  <th scope="row">Status</th>
+                  <td>Deduction tracking in progress</td>
+                </tr>
+                <tr>
+                  <th scope="row">Focus areas</th>
+                  <td>Utilities, cleaning, repairs, inspections, supplies, mileage, and property taxes.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tracked this month</th>
+                  <td><span class="snapshot-amount">$1,860</span></td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
           <section class="card actions-card" aria-labelledby="quick-actions-title">
