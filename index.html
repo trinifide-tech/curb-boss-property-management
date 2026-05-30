@@ -489,6 +489,7 @@
 
       .income-tracker,
       .expense-tracker,
+      .tenant-tracker,
       .inspection-command,
       .repair-tracker,
       .receipt-tracker,
@@ -532,6 +533,7 @@
 
       .income-summary,
       .expense-summary,
+      .tenant-summary,
       .inspection-summary,
       .receipt-summary,
       .repair-summary,
@@ -544,12 +546,14 @@
 
       .income-summary,
       .expense-summary,
+      .tenant-summary,
       .repair-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
 
       .income-summary-card,
       .expense-summary-card,
+      .tenant-summary-card,
       .inspection-summary-card,
       .receipt-summary-card,
       .repair-summary-card,
@@ -562,6 +566,7 @@
 
       .income-summary-card span,
       .expense-summary-card span,
+      .tenant-summary-card span,
       .inspection-summary-card span,
       .receipt-summary-card span,
       .repair-summary-card span,
@@ -577,6 +582,7 @@
 
       .income-summary-card strong,
       .expense-summary-card strong,
+      .tenant-summary-card strong,
       .inspection-summary-card strong,
       .receipt-summary-card strong,
       .repair-summary-card strong,
@@ -590,6 +596,7 @@
 
       .income-grid,
       .expense-grid,
+      .tenant-grid,
       .inspection-grid,
       .repair-grid,
       .receipt-grid,
@@ -600,12 +607,15 @@
       }
 
       .income-grid,
+      .tenant-grid,
       .repair-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .income-card,
       .expense-card,
+      .tenant-card,
+      .tenant-notice,
       .inspection-card,
       .repair-card,
       .receipt-card,
@@ -620,6 +630,8 @@
 
       .income-card h3,
       .expense-card h3,
+      .tenant-card h3,
+      .tenant-notice h3,
       .inspection-card h3,
       .repair-card h3,
       .receipt-card h3,
@@ -634,6 +646,7 @@
 
       .income-meta,
       .expense-meta,
+      .tenant-meta,
       .inspection-meta,
       .repair-meta,
       .receipt-meta,
@@ -645,6 +658,7 @@
 
       .income-meta div,
       .expense-meta div,
+      .tenant-meta div,
       .inspection-meta div,
       .repair-meta div,
       .receipt-meta div,
@@ -659,6 +673,7 @@
 
       .income-meta dt,
       .expense-meta dt,
+      .tenant-meta dt,
       .inspection-meta dt,
       .repair-meta dt,
       .receipt-meta dt,
@@ -672,6 +687,7 @@
 
       .income-meta dd,
       .expense-meta dd,
+      .tenant-meta dd,
       .inspection-meta dd,
       .repair-meta dd,
       .receipt-meta dd,
@@ -795,6 +811,20 @@
 
       .status-chip.progress::before {
         background: var(--yellow);
+      }
+
+      .status-chip.notice,
+      .status-chip.inspection-needed {
+        background: var(--yellow-soft);
+      }
+
+      .status-chip.notice::before,
+      .status-chip.inspection-needed::before {
+        background: var(--yellow);
+      }
+
+      .tenant-notice {
+        margin-top: 1rem;
       }
 
       .tax-checklist {
@@ -1045,12 +1075,14 @@
         .property-dashboard-grid,
         .income-summary,
         .expense-summary,
+        .tenant-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
         .tax-summary-grid,
         .income-grid,
         .expense-grid,
+        .tenant-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
@@ -1093,12 +1125,14 @@
         .property-dashboard-grid,
         .income-summary,
         .expense-summary,
+        .tenant-summary,
         .inspection-summary,
         .repair-summary,
         .receipt-summary,
         .tax-summary-grid,
         .income-grid,
         .expense-grid,
+        .tenant-grid,
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
@@ -1111,6 +1145,7 @@
 
         .income-meta div,
         .expense-meta div,
+        .tenant-meta div,
         .inspection-meta div,
         .repair-meta div,
         .receipt-meta div,
@@ -1136,6 +1171,7 @@
           <ul class="nav-list">
             <li><a class="nav-link active" href="#dashboard">Dashboard</a></li>
             <li><a class="nav-link" href="#properties">Properties</a></li>
+            <li><a class="nav-link" href="#tenant-guest-tracker">Tenants</a></li>
             <li><a class="nav-link" href="#income-rent-tracker">Income</a></li>
             <li><a class="nav-link" href="#expense-tracker">Expenses</a></li>
             <li><a class="nav-link" href="#inspections">Inspections</a></li>
@@ -1145,7 +1181,7 @@
             <li><a class="nav-link" href="#tax-summary">Tax Summary</a></li>
           </ul>
         </nav>
-        <div class="sidebar-note">Static MVP dashboard: no login, forms, uploads, tax filing, payments, payment processing, database, or backend connected yet.</div>
+        <div class="sidebar-note">Static MVP dashboard: no login, forms, messaging, uploads, tax filing, payments, payment processing, database, or backend connected yet.</div>
       </aside>
 
       <div class="main-panel">
@@ -1161,6 +1197,7 @@
         <nav class="mobile-nav" aria-label="Primary navigation">
           <a href="#dashboard">Dashboard</a>
           <a href="#properties">Properties</a>
+          <a href="#tenant-guest-tracker">Tenants</a>
           <a href="#income-rent-tracker">Income</a>
           <a href="#expense-tracker">Expenses</a>
           <a href="#inspections">Inspections</a>
@@ -1620,6 +1657,89 @@
               </ul>
             </section>
           </div>
+
+          <section class="card tenant-tracker" id="tenant-guest-tracker" aria-labelledby="tenant-guest-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Tenant &amp; Guest Tracker</p>
+                <h2 id="tenant-guest-title">Occupant preview for 41 N Ellamont St</h2>
+                <p>Preview occupant status, rental type, payment status, move-in and move-out notes, notices, and issue history without messaging, forms, or backend functionality.</p>
+              </div>
+              <div class="section-pill">Occupancy preview only</div>
+            </div>
+
+            <div class="tenant-summary" aria-label="Tenant and guest summary">
+              <div class="tenant-summary-card">
+                <span>Active Occupants</span>
+                <strong>1</strong>
+              </div>
+              <div class="tenant-summary-card">
+                <span>Vacant Rooms</span>
+                <strong>0</strong>
+              </div>
+              <div class="tenant-summary-card">
+                <span>Notices Pending</span>
+                <strong>1</strong>
+              </div>
+              <div class="tenant-summary-card">
+                <span>Late Payments</span>
+                <strong>0</strong>
+              </div>
+              <div class="tenant-summary-card">
+                <span>Move-Out Follow-Ups</span>
+                <strong>1</strong>
+              </div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Tenant and guest status badge examples">
+              <span class="status-chip paid">Active</span>
+              <span class="status-chip paid">Paid</span>
+              <span class="status-chip follow-up">Needs Follow-Up</span>
+              <span class="status-chip notice">Notice Pending</span>
+              <span class="status-chip inspection-needed">Inspection Needed</span>
+              <span class="status-chip review">Review Needed</span>
+            </div>
+
+            <div class="tenant-grid" aria-label="Tenant and guest cards">
+              <article class="tenant-card">
+                <h3>Room 1 Occupant</h3>
+                <dl class="tenant-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Room rental / furnished rental</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip paid">Active</span></dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Monthly income</dt><dd>$4,954</dd></div>
+                  <div><dt>Move-in status</dt><dd>Active stay</dd></div>
+                  <div><dt>Notice status</dt><dd>No active notice</dd></div>
+                  <div><dt>Notes</dt><dd>Income and property activity tracked in dashboard</dd></div>
+                </dl>
+              </article>
+
+              <article class="tenant-card">
+                <h3>Basement Unit / Follow-Up</h3>
+                <dl class="tenant-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Furnished rental / basement unit</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip follow-up">Needs Follow-Up</span></dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip review">Review Needed</span></dd></div>
+                  <div><dt>Inspection status</dt><dd><span class="status-chip inspection-needed">Mold / moisture follow-up</span></dd></div>
+                  <div><dt>Notice status</dt><dd><span class="status-chip notice">Pending Review</span></dd></div>
+                  <div><dt>Notes</dt><dd>Inspection, repair, and documentation tracking needed</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="tenant-notice" aria-labelledby="notice-communication-title">
+              <h3 id="notice-communication-title">Notice &amp; Communication Preview</h3>
+              <ul class="mini-list">
+                <li>Inspection notice sent</li>
+                <li>Repair follow-up needed</li>
+                <li>Receipt request needed</li>
+                <li>Move-out condition review</li>
+                <li>Payment status review</li>
+              </ul>
+            </div>
+          </section>
 
           <section class="card inspection-command" id="inspection-command-center" aria-labelledby="inspection-command-title">
             <div class="section-header">
@@ -2131,7 +2251,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, messaging, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
