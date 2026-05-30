@@ -1,8 +1,8 @@
 # Curb Boss Property Management
 
-A mobile-friendly property management web page for Curb Boss Property Management, helping users present services, share business information, and connect with clients.
+A mobile-friendly static landlord dashboard for Curb Boss Property Management. The first dashboard prototype shows rental income, expenses, profit, inspections, repairs, receipts, one sample property, quick actions, and a tax summary preview.
 
-## View the page
+## View the dashboard
 
 Open `index.html` directly in a browser, or run a local server from this folder:
 
@@ -10,4 +10,4 @@ Open `index.html` directly in a browser, or run a local server from this folder:
 python3 -m http.server 8000
 ```
 
-Then visit <http://localhost:8000> to view the page.
+Then visit <http://localhost:8000> to view the dashboard.
