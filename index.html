@@ -488,6 +488,7 @@
       }
 
       .inspection-command,
+      .repair-tracker,
       .receipt-tracker {
         grid-column: span 12;
         padding: clamp(1.2rem, 3vw, 2rem);
@@ -527,15 +528,21 @@
       }
 
       .inspection-summary,
-      .receipt-summary {
+      .receipt-summary,
+      .repair-summary {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.75rem;
         margin: 1.2rem 0;
       }
 
+      .repair-summary {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
       .inspection-summary-card,
-      .receipt-summary-card {
+      .receipt-summary-card,
+      .repair-summary-card {
         padding: 1rem;
         border: 1px solid var(--border);
         border-radius: 1rem;
@@ -543,7 +550,8 @@
       }
 
       .inspection-summary-card span,
-      .receipt-summary-card span {
+      .receipt-summary-card span,
+      .repair-summary-card span {
         display: block;
         margin-bottom: 0.45rem;
         color: var(--muted);
@@ -554,7 +562,8 @@
       }
 
       .inspection-summary-card strong,
-      .receipt-summary-card strong {
+      .receipt-summary-card strong,
+      .repair-summary-card strong {
         display: block;
         color: var(--deep-green);
         font-size: 1.85rem;
@@ -563,13 +572,19 @@
       }
 
       .inspection-grid,
+      .repair-grid,
       .receipt-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.9rem;
       }
 
+      .repair-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .inspection-card,
+      .repair-card,
       .receipt-card {
         padding: 1rem;
         border: 1px solid var(--border);
@@ -579,6 +594,7 @@
       }
 
       .inspection-card h3,
+      .repair-card h3,
       .receipt-card h3 {
         margin-bottom: 0.75rem;
         color: var(--deep-green);
@@ -588,6 +604,7 @@
       }
 
       .inspection-meta,
+      .repair-meta,
       .receipt-meta {
         display: grid;
         gap: 0.52rem;
@@ -595,6 +612,7 @@
       }
 
       .inspection-meta div,
+      .repair-meta div,
       .receipt-meta div {
         display: grid;
         grid-template-columns: 6.8rem minmax(0, 1fr);
@@ -605,6 +623,7 @@
       }
 
       .inspection-meta dt,
+      .repair-meta dt,
       .receipt-meta dt {
         color: var(--muted);
         font-size: 0.76rem;
@@ -614,6 +633,7 @@
       }
 
       .inspection-meta dd,
+      .repair-meta dd,
       .receipt-meta dd {
         margin: 0;
         color: var(--ink);
@@ -678,6 +698,29 @@
 
       .status-chip.review::before {
         background: var(--yellow);
+      }
+
+      .status-chip.open,
+      .status-chip.pending {
+        background: var(--yellow-soft);
+      }
+
+      .status-chip.open::before,
+      .status-chip.pending::before {
+        background: var(--yellow);
+      }
+
+      .status-chip.low {
+        background: #eef5f2;
+      }
+
+      .status-chip.high {
+        background: #fce9df;
+        color: #79351d;
+      }
+
+      .status-chip.high::before {
+        background: #d96b35;
       }
 
       .detail-card h3 {
@@ -868,8 +911,10 @@
         .property-detail-grid,
         .property-dashboard-grid,
         .inspection-summary,
+        .repair-summary,
         .receipt-summary,
         .inspection-grid,
+        .repair-grid,
         .receipt-grid,
         .tax-categories {
           grid-template-columns: repeat(2, 1fr);
@@ -904,8 +949,10 @@
         .property-detail-grid,
         .property-dashboard-grid,
         .inspection-summary,
+        .repair-summary,
         .receipt-summary,
         .inspection-grid,
+        .repair-grid,
         .receipt-grid,
         .quick-actions,
         .tax-categories {
@@ -913,6 +960,7 @@
         }
 
         .inspection-meta div,
+        .repair-meta div,
         .receipt-meta div {
           grid-template-columns: 1fr;
         }
@@ -935,7 +983,7 @@
             <li><a class="nav-link" href="#expenses">Expenses</a></li>
             <li><a class="nav-link" href="#inspections">Inspections</a></li>
             <li><a class="nav-link" href="#inspection-command-center">Command Center</a></li>
-            <li><a class="nav-link" href="#repairs">Repairs</a></li>
+            <li><a class="nav-link" href="#repair-maintenance-tracker">Repairs</a></li>
             <li><a class="nav-link" href="#receipt-deduction-tracker">Receipts</a></li>
             <li><a class="nav-link" href="#tax-summary">Tax Summary</a></li>
           </ul>
@@ -960,7 +1008,7 @@
           <a href="#expenses">Expenses</a>
           <a href="#inspections">Inspections</a>
           <a href="#inspection-command-center">Command Center</a>
-          <a href="#repairs">Repairs</a>
+          <a href="#repair-maintenance-tracker">Repairs</a>
           <a href="#receipt-deduction-tracker">Receipts</a>
           <a href="#tax-summary">Tax Summary</a>
         </nav>
@@ -1270,6 +1318,103 @@
                   <div><dt>Est. cost</dt><dd>$75</dd></div>
                   <div><dt>Next action</dt><dd>Carry open maintenance notes into June checklist.</dd></div>
                   <div><dt>Tax category</dt><dd>Inspections / Maintenance</dd></div>
+                </dl>
+              </article>
+            </div>
+          </section>
+
+          <section class="card repair-tracker" id="repair-maintenance-tracker" aria-labelledby="repair-maintenance-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Repair &amp; Maintenance Tracker</p>
+                <h2 id="repair-maintenance-title">Repair pipeline for 41 N Ellamont St</h2>
+                <p>Preview open repairs, urgent maintenance, vendor assignments, estimated costs, receipt status, and tax categories in one static maintenance workspace.</p>
+              </div>
+              <div class="section-pill">Maintenance preview</div>
+            </div>
+
+            <div class="repair-summary" aria-label="Repair and maintenance summary">
+              <div class="repair-summary-card">
+                <span>Open Repairs</span>
+                <strong>4</strong>
+              </div>
+              <div class="repair-summary-card">
+                <span>Urgent Items</span>
+                <strong>1</strong>
+              </div>
+              <div class="repair-summary-card">
+                <span>Scheduled Repairs</span>
+                <strong>2</strong>
+              </div>
+              <div class="repair-summary-card">
+                <span>Completed This Month</span>
+                <strong>3</strong>
+              </div>
+              <div class="repair-summary-card">
+                <span>Estimated Repair Costs</span>
+                <strong>$1,250</strong>
+              </div>
+            </div>
+
+            <div class="repair-grid" aria-label="Repair and maintenance cards">
+              <article class="repair-card">
+                <h3>Flooring Review</h3>
+                <dl class="repair-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip high">High</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip follow-up">Needs Follow-Up</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Flooring contractor</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$750</dd></div>
+                  <div><dt>Linked inspection</dt><dd>Mold / Moisture Inspection</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Receipt Missing</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Repairs / Maintenance</dd></div>
+                  <div><dt>Next action</dt><dd>Get repair quote</dd></div>
+                </dl>
+              </article>
+
+              <article class="repair-card">
+                <h3>HVAC Filter Check</h3>
+                <dl class="repair-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Scheduled</span></dd></div>
+                  <div><dt>Vendor</dt><dd>HVAC technician</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$350</dd></div>
+                  <div><dt>Linked inspection</dt><dd>HVAC Inspection</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                  <div><dt>Next action</dt><dd>Confirm appointment</dd></div>
+                </dl>
+              </article>
+
+              <article class="repair-card">
+                <h3>Plumbing Review</h3>
+                <dl class="repair-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip open">Open</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Plumber</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$350</dd></div>
+                  <div><dt>Linked inspection</dt><dd>Plumbing Inspection</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Repairs</dd></div>
+                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                  <div><dt>Next action</dt><dd>Review invoice</dd></div>
+                </dl>
+              </article>
+
+              <article class="repair-card">
+                <h3>Smoke / CO Detector Check</h3>
+                <dl class="repair-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip low">Low</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Completed</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Self-check</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$0</dd></div>
+                  <div><dt>Linked inspection</dt><dd>Safety Inspection</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip low">Not needed</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Safety / Compliance</dd></div>
+                  <div><dt>Next action</dt><dd>Set next reminder</dd></div>
                 </dl>
               </article>
             </div>
