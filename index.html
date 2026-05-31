@@ -1367,6 +1367,90 @@
         border-left-color: var(--yellow);
       }
 
+      .actions-card {
+        grid-column: span 12;
+        padding: clamp(1.2rem, 3vw, 2rem);
+        background: linear-gradient(145deg, var(--deep-green), var(--deep-green-2));
+        color: #ffffff;
+      }
+
+      .actions-card .section-kicker {
+        color: var(--yellow);
+      }
+
+      .actions-card h2 {
+        color: #ffffff;
+      }
+
+      .actions-card p {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.55;
+      }
+
+      .tax-card p {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.2rem;
+      }
+
+      .action-button {
+        min-height: 3.3rem;
+        padding: 0 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 0.95rem;
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--deep-green);
+        cursor: default;
+        font-weight: 950;
+        text-align: left;
+        box-shadow: 0 10px 22px rgba(11, 61, 53, 0.14);
+      }
+
+      .action-button.primary {
+        border-color: rgba(244, 197, 66, 0.78);
+        background: var(--yellow-soft);
+        color: var(--deep-green);
+      }
+
+      .action-button.accent {
+        border-color: rgba(244, 197, 66, 0.78);
+        background: var(--yellow);
+        color: var(--deep-green);
+      }
+
+      .alert-queue {
+        border-color: rgba(244, 197, 66, 0.4);
+      }
+
+      .alert-list {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .alert-card {
+        display: grid;
+        grid-template-columns: minmax(12rem, 1.15fr) minmax(0, 2.4fr);
+        gap: 1rem;
+        align-items: start;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-left: 0.35rem solid var(--deep-green);
+        border-radius: 1rem;
+        background: #ffffff;
+        box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
+      }
+
+      .alert-card.high-priority {
+        border-left-color: var(--yellow);
+      }
+
       .alert-card h3 {
         margin-bottom: 0.55rem;
         color: var(--deep-green);
@@ -2223,6 +2307,7 @@
                 </dl>
               </article>
             </div>
+            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card repair-tracker" id="repair-maintenance-tracker" aria-labelledby="repair-maintenance-title">
