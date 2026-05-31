@@ -499,6 +499,8 @@
       .workorder-section,
       .invoice-section,
       .payment-section,
+      .marketing-section,
+      .screening-section,
       .document-section,
       .roadmap-section {
         grid-column: span 12;
@@ -549,6 +551,8 @@
       .workorder-summary,
       .invoice-summary,
       .payment-summary,
+      .marketing-summary,
+      .screening-summary,
       .document-summary,
       .tax-summary-grid {
         display: grid;
@@ -565,6 +569,8 @@
       .workorder-summary,
       .invoice-summary,
       .payment-summary,
+      .marketing-summary,
+      .screening-summary,
       .document-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
@@ -580,6 +586,8 @@
       .workorder-summary-card,
       .invoice-summary-card,
       .payment-summary-card,
+      .marketing-summary-card,
+      .screening-summary-card,
       .document-summary-card,
       .tax-summary-card {
         padding: 1rem;
@@ -599,6 +607,8 @@
       .workorder-summary-card span,
       .invoice-summary-card span,
       .payment-summary-card span,
+      .marketing-summary-card span,
+      .screening-summary-card span,
       .document-summary-card span,
       .tax-summary-card span {
         display: block;
@@ -621,6 +631,8 @@
       .workorder-summary-card strong,
       .invoice-summary-card strong,
       .payment-summary-card strong,
+      .marketing-summary-card strong,
+      .screening-summary-card strong,
       .document-summary-card strong,
       .tax-summary-card strong {
         display: block;
@@ -640,6 +652,9 @@
       .workorder-grid,
       .invoice-grid,
       .payment-grid,
+      .marketing-grid,
+      .marketing-tools-grid,
+      .screening-grid,
       .workflow-grid,
       .document-grid,
       .tax-deduction-grid,
@@ -664,12 +679,18 @@
       .workorder-card,
       .invoice-card,
       .payment-card,
+      .marketing-card,
+      .marketing-tool-card,
+      .screening-card,
       .invoice-group,
       .workflow-card,
       .workorder-flow-card,
       .invoice-flow-card,
       .payment-flow-card,
+      .marketing-flow-card,
+      .screening-flow-card,
       .payment-note,
+      .screening-note,
       .document-card,
       .auto-load-card,
       .filing-rules-card,
@@ -693,12 +714,18 @@
       .workorder-card h3,
       .invoice-card h3,
       .payment-card h3,
+      .marketing-card h3,
+      .marketing-tool-card h3,
+      .screening-card h3,
       .invoice-group h3,
       .workflow-card h3,
       .workorder-flow-card h3,
       .invoice-flow-card h3,
       .payment-flow-card h3,
+      .marketing-flow-card h3,
+      .screening-flow-card h3,
       .payment-note h3,
+      .screening-note h3,
       .document-card h3,
       .auto-load-card h3,
       .filing-rules-card h3,
@@ -722,6 +749,8 @@
       .workorder-meta,
       .invoice-meta,
       .payment-meta,
+      .marketing-meta,
+      .screening-meta,
       .document-meta,
       .tax-deduction-meta {
         display: grid;
@@ -739,6 +768,8 @@
       .workorder-meta div,
       .invoice-meta div,
       .payment-meta div,
+      .marketing-meta div,
+      .screening-meta div,
       .document-meta div,
       .tax-deduction-meta div {
         display: grid;
@@ -759,6 +790,8 @@
       .workorder-meta dt,
       .invoice-meta dt,
       .payment-meta dt,
+      .marketing-meta dt,
+      .screening-meta dt,
       .document-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
@@ -778,6 +811,8 @@
       .workorder-meta dd,
       .invoice-meta dd,
       .payment-meta dd,
+      .marketing-meta dd,
+      .screening-meta dd,
       .document-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
@@ -1094,6 +1129,82 @@
         line-height: 1.55;
       }
 
+      .marketing-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(231, 240, 237, 0.9) 100%);
+      }
+
+      .marketing-summary {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .marketing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .marketing-tools-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 1rem;
+      }
+
+      .marketing-card,
+      .marketing-tool-card {
+        min-height: 100%;
+      }
+
+      .marketing-meta div {
+        grid-template-columns: 8.6rem minmax(0, 1fr);
+      }
+
+      .marketing-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .marketing-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screening-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(255, 246, 217, 0.42) 100%);
+      }
+
+      .screening-summary {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .screening-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .screening-card {
+        min-height: 100%;
+      }
+
+      .screening-meta div {
+        grid-template-columns: 8.8rem minmax(0, 1fr);
+      }
+
+      .screening-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .screening-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screening-note {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.42);
+        background: var(--yellow-soft);
+        color: var(--deep-green);
+      }
+
+      .screening-note p {
+        margin-bottom: 0;
+        line-height: 1.55;
+      }
+
       .document-section {
         background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 72%, rgba(255, 246, 217, 0.6) 100%);
       }
@@ -1305,94 +1416,10 @@
 
       .tax-card p {
         color: var(--muted);
-        line-height: 1.55;
+        line-height: 1.45;
       }
 
-      .quick-actions {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 0.75rem;
-        margin-top: 1.2rem;
-      }
-
-      .action-button {
-        min-height: 3.3rem;
-        padding: 0 0.95rem;
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 0.95rem;
-        background: rgba(255, 255, 255, 0.96);
-        color: var(--deep-green);
-        cursor: default;
-        font-weight: 950;
-        text-align: left;
-        box-shadow: 0 10px 22px rgba(11, 61, 53, 0.14);
-      }
-
-      .action-button.primary {
-        border-color: rgba(244, 197, 66, 0.78);
-        background: var(--yellow-soft);
-        color: var(--deep-green);
-      }
-
-      .action-button.accent {
-        border-color: rgba(244, 197, 66, 0.78);
-        background: var(--yellow);
-        color: var(--deep-green);
-      }
-
-      .alert-queue {
-        border-color: rgba(244, 197, 66, 0.4);
-      }
-
-      .alert-list {
-        display: grid;
-        gap: 0.75rem;
-        margin-top: 1rem;
-      }
-
-      .alert-card {
-        display: grid;
-        grid-template-columns: minmax(12rem, 1.15fr) minmax(0, 2.4fr);
-        gap: 1rem;
-        align-items: start;
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-left: 0.35rem solid var(--deep-green);
-        border-radius: 1rem;
-        background: #ffffff;
-        box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
-      }
-
-      .alert-card.high-priority {
-        border-left-color: var(--yellow);
-      }
-
-      .actions-card {
-        grid-column: span 12;
-        padding: clamp(1.2rem, 3vw, 2rem);
-        background: linear-gradient(145deg, var(--deep-green), var(--deep-green-2));
-        color: #ffffff;
-      }
-
-      .actions-card .section-kicker {
-        color: var(--yellow);
-      }
-
-      .actions-card h2 {
-        color: #ffffff;
-      }
-
-      .actions-card p {
-        color: rgba(255, 255, 255, 0.78);
-        line-height: 1.55;
-      }
-
-      .tax-card p {
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .quick-actions {
+      .alert-meta {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 0.75rem;
@@ -1583,6 +1610,8 @@
         .workorder-summary,
         .invoice-summary,
         .payment-summary,
+        .marketing-summary,
+        .screening-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1596,6 +1625,9 @@
         .workorder-grid,
         .invoice-grid,
         .payment-grid,
+        .marketing-grid,
+        .marketing-tools-grid,
+        .screening-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1651,6 +1683,8 @@
         .workorder-summary,
         .invoice-summary,
         .payment-summary,
+        .marketing-summary,
+        .screening-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1664,6 +1698,9 @@
         .workorder-grid,
         .invoice-grid,
         .payment-grid,
+        .marketing-grid,
+        .marketing-tools-grid,
+        .screening-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1684,6 +1721,8 @@
         .workorder-meta div,
         .invoice-meta div,
         .payment-meta div,
+        .marketing-meta div,
+        .screening-meta div,
         .document-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
@@ -1700,6 +1739,8 @@
         .workorder-flow-card .mini-list,
         .invoice-flow-card .mini-list,
         .payment-flow-card .mini-list,
+        .marketing-flow-card .mini-list,
+        .screening-flow-card .mini-list,
         .filing-rules-card .mini-list {
           grid-template-columns: 1fr;
         }
@@ -2157,7 +2198,131 @@
                 <div class="history-month"><span>Nov</span><strong>$4,723</strong></div>
                 <div class="history-month"><span>Dec</span><strong>$4,954</strong></div>
               </div>
+              <div class="inspection-summary-card">
+                <span>Completed This Month</span>
+                <strong>2</strong>
+              </div>
             </div>
+
+            <div class="inspection-grid" aria-label="Inspection cards">
+              <article class="inspection-card">
+                <h3>Mold / Moisture Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip follow-up">Needs Follow-Up</span></dd></div>
+                  <div><dt>Date</dt><dd>June 4, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Harbor Environmental Review</dd></div>
+                  <div><dt>Est. cost</dt><dd>$185</dd></div>
+                  <div><dt>Next action</dt><dd>Recheck basement humidity and bathroom ventilation.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections / Maintenance</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>HVAC Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip warning">Due Soon</span></dd></div>
+                  <div><dt>Date</dt><dd>June 7, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Charm City HVAC</dd></div>
+                  <div><dt>Est. cost</dt><dd>$125</dd></div>
+                  <div><dt>Next action</dt><dd>Confirm filter size and service window.</dd></div>
+                  <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Plumbing Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Scheduled</span></dd></div>
+                  <div><dt>Date</dt><dd>June 11, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Blue Line Plumbing</dd></div>
+                  <div><dt>Est. cost</dt><dd>$150</dd></div>
+                  <div><dt>Next action</dt><dd>Review shared bath fixtures and basement drain.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections / Repairs</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Electrical Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Scheduled</span></dd></div>
+                  <div><dt>Date</dt><dd>June 14, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Bright Circuit Electric</dd></div>
+                  <div><dt>Est. cost</dt><dd>$210</dd></div>
+                  <div><dt>Next action</dt><dd>Check outlets, panel labels, and common-area lighting.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections / Repairs</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Pest Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip warning">Due Soon</span></dd></div>
+                  <div><dt>Date</dt><dd>June 16, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Green Shield Pest</dd></div>
+                  <div><dt>Est. cost</dt><dd>$95</dd></div>
+                  <div><dt>Next action</dt><dd>Inspect kitchen, basement, and exterior entry points.</dd></div>
+                  <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Lead Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Scheduled</span></dd></div>
+                  <div><dt>Date</dt><dd>June 20, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Metro Lead Compliance</dd></div>
+                  <div><dt>Est. cost</dt><dd>$260</dd></div>
+                  <div><dt>Next action</dt><dd>Prepare access to painted trim and common areas.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Smoke / CO Detector Check</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Completed</span></dd></div>
+                  <div><dt>Date</dt><dd>May 22, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>In-house safety check</dd></div>
+                  <div><dt>Est. cost</dt><dd>$35</dd></div>
+                  <div><dt>Next action</dt><dd>Replace backup batteries during next walkthrough.</dd></div>
+                  <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Move-In / Move-Out Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip follow-up">Needs Follow-Up</span></dd></div>
+                  <div><dt>Date</dt><dd>May 28, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Curb Boss walkthrough</dd></div>
+                  <div><dt>Est. cost</dt><dd>$0</dd></div>
+                  <div><dt>Next action</dt><dd>Document flooring condition and shared-space photos.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections / Repairs</dd></div>
+                </dl>
+              </article>
+
+              <article class="inspection-card">
+                <h3>Quarterly Property Inspection</h3>
+                <dl class="inspection-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip">Completed</span></dd></div>
+                  <div><dt>Date</dt><dd>May 15, 2026</dd></div>
+                  <div><dt>Vendor</dt><dd>Curb Boss quarterly review</dd></div>
+                  <div><dt>Est. cost</dt><dd>$75</dd></div>
+                  <div><dt>Next action</dt><dd>Carry open maintenance notes into June checklist.</dd></div>
+                  <div><dt>Tax category</dt><dd>Inspections / Maintenance</dd></div>
+                </dl>
+              </article>
+            </div>
+            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card inspection-command" id="inspection-command-center" aria-labelledby="inspection-command-title">
@@ -2307,7 +2472,6 @@
                 </dl>
               </article>
             </div>
-            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card repair-tracker" id="repair-maintenance-tracker" aria-labelledby="repair-maintenance-title">
@@ -3422,6 +3586,238 @@
             </div>
           </section>
 
+          <section class="card marketing-section" id="marketing-listing-center" aria-labelledby="marketing-listing-center-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Marketing Module</p>
+                <h2 id="marketing-listing-center-title">Marketing &amp; Listing Center</h2>
+                <p>Curb Boss will help landlords create rental listings, track where units are posted, manage vacancy marketing, preview direct-booking pages, and organize inquiries before a tenant or guest moves in.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Coming Soon</span></div>
+            </div>
+
+            <div class="marketing-summary" aria-label="Marketing and listing preview metrics">
+              <div class="marketing-summary-card"><span>Active Listings</span><strong>1</strong></div>
+              <div class="marketing-summary-card"><span>Draft Listings</span><strong>2</strong></div>
+              <div class="marketing-summary-card"><span>Platforms Tracked</span><strong>6</strong></div>
+              <div class="marketing-summary-card"><span>New Inquiries</span><strong>4</strong></div>
+              <div class="marketing-summary-card"><span>Follow-Ups Needed</span><strong>2</strong></div>
+              <div class="marketing-summary-card"><span>Direct Booking Preview</span><strong>Coming Soon</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Marketing and listing badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip ready">Active Listing</span>
+              <span class="status-chip pending">Draft</span>
+              <span class="status-chip low">Paused</span>
+              <span class="status-chip review">Inquiry</span>
+              <span class="status-chip high">Follow-Up Needed</span>
+              <span class="status-chip recurring">Direct Booking</span>
+              <span class="status-chip uploaded">Platform Tracked</span>
+              <span class="status-chip warning">Photo Checklist</span>
+            </div>
+
+            <div class="marketing-grid" aria-label="Marketing listing preview cards for 41 N Ellamont St">
+              <article class="marketing-card">
+                <h3>Room Rental Listing</h3>
+                <dl class="marketing-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Room rental / furnished rental</dd></div>
+                  <div><dt>Listing status</dt><dd><span class="status-chip ready">Active Listing</span></dd></div>
+                  <div><dt>Platforms</dt><dd>Furnished Finder, Facebook Marketplace, Direct Website</dd></div>
+                  <div><dt>Monthly income target</dt><dd>$4,954</dd></div>
+                  <div><dt>Inquiry status</dt><dd><span class="status-chip review">New inquiries</span></dd></div>
+                  <div><dt>Next action</dt><dd>Review listing photos and description</dd></div>
+                </dl>
+              </article>
+
+              <article class="marketing-card">
+                <h3>Furnished Stay Listing</h3>
+                <dl class="marketing-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Short-term / furnished stay</dd></div>
+                  <div><dt>Listing status</dt><dd><span class="status-chip pending">Draft</span></dd></div>
+                  <div><dt>Platforms</dt><dd>Airbnb, Direct Website, Referral</dd></div>
+                  <div><dt>Booking status</dt><dd><span class="status-chip progress">Coming Soon</span></dd></div>
+                  <div><dt>Next action</dt><dd>Build direct-booking page preview</dd></div>
+                </dl>
+              </article>
+
+              <article class="marketing-card">
+                <h3>Basement Unit Listing Review</h3>
+                <dl class="marketing-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Rental type</dt><dd>Basement / furnished unit</dd></div>
+                  <div><dt>Listing status</dt><dd><span class="status-chip low">Paused</span></dd></div>
+                  <div><dt>Reason</dt><dd>Inspection / moisture follow-up needed</dd></div>
+                  <div><dt>Related module</dt><dd>Inspection Command Center</dd></div>
+                  <div><dt>Next action</dt><dd>Resolve property condition before marketing</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="marketing-tools-grid" aria-label="Marketing center preview tools">
+              <article class="marketing-tool-card">
+                <h3>Listing Builder Preview</h3>
+                <ul class="mini-list">
+                  <li>Headline</li>
+                  <li>Property description</li>
+                  <li>Amenities</li>
+                  <li>House rules</li>
+                  <li>Photo checklist</li>
+                  <li>Rental type</li>
+                  <li>Target renter / guest</li>
+                  <li>Monthly or nightly rate</li>
+                  <li>Contact method</li>
+                  <li>Platform posted</li>
+                </ul>
+              </article>
+
+              <article class="marketing-tool-card">
+                <h3>Vacancy Marketing Tracker</h3>
+                <ul class="mini-list">
+                  <li>Furnished Finder</li>
+                  <li>Airbnb</li>
+                  <li>Facebook Marketplace</li>
+                  <li>Zillow</li>
+                  <li>Craigslist</li>
+                  <li>Direct Website</li>
+                  <li>Referrals</li>
+                </ul>
+              </article>
+
+              <article class="marketing-tool-card">
+                <h3>Inquiry Tracker Preview</h3>
+                <ul class="mini-list">
+                  <li>Lead name</li>
+                  <li>Platform source</li>
+                  <li>Property / unit</li>
+                  <li>Inquiry date</li>
+                  <li>Showing / follow-up date</li>
+                  <li>Status: New, Follow-Up Needed, Converted, Not a Fit</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="marketing-flow-card" aria-labelledby="marketing-connected-workflow-title">
+              <h3 id="marketing-connected-workflow-title">Connected Marketing Workflow</h3>
+              <ul class="mini-list">
+                <li>Listings connect to property records</li>
+                <li>Inquiries can become tenant or guest profiles</li>
+                <li>Showing dates can auto-load to the calendar</li>
+                <li>Paused listings can connect to inspection or repair issues</li>
+                <li>Direct-booking previews can connect to payment status later</li>
+                <li>Listing notes can be saved in the Document Vault</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="card screening-section" id="tenant-screening-integration" aria-labelledby="tenant-screening-integration-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Third-Party Integration</p>
+                <h2 id="tenant-screening-integration-title">Tenant Screening Integration</h2>
+                <p>Curb Boss will help landlords track applicant screening status, application progress, decision notes, and documentation while keeping sensitive screening reports with trusted third-party providers.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip integration">Third-Party Integration</span></div>
+            </div>
+
+            <div class="screening-summary" aria-label="Tenant screening integration preview metrics">
+              <div class="screening-summary-card"><span>Applications</span><strong>3</strong></div>
+              <div class="screening-summary-card"><span>Screening Pending</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Needs Review</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Approved</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Declined</span><strong>0</strong></div>
+              <div class="screening-summary-card"><span>Future Integration</span><strong>Coming Soon</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Tenant screening status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip integration">Third-Party Integration</span>
+              <span class="status-chip pending">Screening Pending</span>
+              <span class="status-chip review">Needs Review</span>
+              <span class="status-chip ready">Approved</span>
+              <span class="status-chip missing">Declined</span>
+              <span class="status-chip low">Not Started</span>
+              <span class="status-chip warning">Documentation Needed</span>
+              <span class="status-chip uploaded">Provider Managed</span>
+            </div>
+
+            <div class="screening-grid" aria-label="Applicant screening preview cards for 41 N Ellamont St">
+              <article class="screening-card">
+                <h3>Room Rental Applicant</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Room 1</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip pending">Screening Pending</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Pending</dd></div>
+                  <div><dt>Background check status</dt><dd>Pending</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Pending</dd></div>
+                  <div><dt>Income verification</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>ID verification</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>Reference check</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                  <div><dt>Notes</dt><dd>Applicant screening workflow preview only</dd></div>
+                </dl>
+              </article>
+
+              <article class="screening-card">
+                <h3>Furnished Stay Applicant</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Furnished stay</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip review">In Review</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Not started</dd></div>
+                  <div><dt>Background check status</dt><dd>Not started</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Not started</dd></div>
+                  <div><dt>Income verification</dt><dd>Uploaded to provider</dd></div>
+                  <div><dt>ID verification</dt><dd>Pending</dd></div>
+                  <div><dt>Reference check</dt><dd>Pending</dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                  <div><dt>Notes</dt><dd>Screening records should remain with approved screening provider</dd></div>
+                </dl>
+              </article>
+
+              <article class="screening-card">
+                <h3>Approved Applicant Example</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Room rental</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip ready">Approved</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Background check status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Income verification</dt><dd>Reviewed</dd></div>
+                  <div><dt>ID verification</dt><dd>Reviewed</dd></div>
+                  <div><dt>Reference check</dt><dd>Reviewed</dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip ready">Approved</span></dd></div>
+                  <div><dt>Next action</dt><dd>Prepare lease or occupancy documents</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="screening-flow-card" aria-labelledby="screening-connected-workflow-title">
+              <h3 id="screening-connected-workflow-title">Connected Screening Workflow</h3>
+              <ul class="mini-list">
+                <li>Marketing inquiries can become applicant records</li>
+                <li>Screening status connects to Tenant &amp; Guest Tracker</li>
+                <li>Approved applicants can move to Lease &amp; Document Vault</li>
+                <li>Move-in dates can auto-load to Landlord Calendar</li>
+                <li>Missing applicant documents can create Boss Alerts</li>
+                <li>Screening decisions can be documented without storing sensitive reports</li>
+                <li>Sensitive reports should stay with trusted third-party providers</li>
+              </ul>
+            </div>
+
+            <div class="screening-note" aria-label="Tenant screening clarity note">
+              <h3>Provider-managed screening only</h3>
+              <p>Curb Boss will track screening workflow status only. Sensitive credit, background, eviction, and identity reports should remain with approved third-party screening providers.</p>
+            </div>
+          </section>
+
           <section class="card document-section" id="lease-document-vault" aria-labelledby="lease-document-vault-title">
             <div class="section-header">
               <div>
@@ -3626,7 +4022,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real invoicing, real payment processing, ACH, Stripe, PayPal, Zelle integration, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, real tenant screening, background checks, credit checks, eviction checks, Social Security number fields, sensitive applicant data storage, real work order submissions, real invoicing, real listing publishing, real booking, integrations, real payment processing, ACH, Stripe, PayPal, Zelle integration, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
