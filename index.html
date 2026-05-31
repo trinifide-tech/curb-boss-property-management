@@ -497,6 +497,7 @@
       .calendar-section,
       .tenant-section,
       .workorder-section,
+      .invoice-section,
       .document-section,
       .roadmap-section {
         grid-column: span 12;
@@ -545,6 +546,7 @@
       .calendar-summary,
       .tenant-summary,
       .workorder-summary,
+      .invoice-summary,
       .document-summary,
       .tax-summary-grid {
         display: grid;
@@ -559,6 +561,7 @@
       .calendar-summary,
       .tenant-summary,
       .workorder-summary,
+      .invoice-summary,
       .document-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
@@ -572,6 +575,7 @@
       .calendar-summary-card,
       .tenant-summary-card,
       .workorder-summary-card,
+      .invoice-summary-card,
       .document-summary-card,
       .tax-summary-card {
         padding: 1rem;
@@ -589,6 +593,7 @@
       .calendar-summary-card span,
       .tenant-summary-card span,
       .workorder-summary-card span,
+      .invoice-summary-card span,
       .document-summary-card span,
       .tax-summary-card span {
         display: block;
@@ -609,6 +614,7 @@
       .calendar-summary-card strong,
       .tenant-summary-card strong,
       .workorder-summary-card strong,
+      .invoice-summary-card strong,
       .document-summary-card strong,
       .tax-summary-card strong {
         display: block;
@@ -626,6 +632,7 @@
       .calendar-grid,
       .tenant-grid,
       .workorder-grid,
+      .invoice-grid,
       .workflow-grid,
       .document-grid,
       .tax-deduction-grid,
@@ -648,8 +655,11 @@
       .calendar-card,
       .tenant-card,
       .workorder-card,
+      .invoice-card,
+      .invoice-group,
       .workflow-card,
       .workorder-flow-card,
+      .invoice-flow-card,
       .document-card,
       .auto-load-card,
       .filing-rules-card,
@@ -671,8 +681,11 @@
       .calendar-card h3,
       .tenant-card h3,
       .workorder-card h3,
+      .invoice-card h3,
+      .invoice-group h3,
       .workflow-card h3,
       .workorder-flow-card h3,
+      .invoice-flow-card h3,
       .document-card h3,
       .auto-load-card h3,
       .filing-rules-card h3,
@@ -694,6 +707,7 @@
       .calendar-meta,
       .tenant-meta,
       .workorder-meta,
+      .invoice-meta,
       .document-meta,
       .tax-deduction-meta {
         display: grid;
@@ -709,6 +723,7 @@
       .calendar-meta div,
       .tenant-meta div,
       .workorder-meta div,
+      .invoice-meta div,
       .document-meta div,
       .tax-deduction-meta div {
         display: grid;
@@ -727,6 +742,7 @@
       .calendar-meta dt,
       .tenant-meta dt,
       .workorder-meta dt,
+      .invoice-meta dt,
       .document-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
@@ -744,6 +760,7 @@
       .calendar-meta dd,
       .tenant-meta dd,
       .workorder-meta dd,
+      .invoice-meta dd,
       .document-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
@@ -977,6 +994,45 @@
       }
 
       .workorder-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .invoice-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(231, 240, 237, 0.88) 100%);
+      }
+
+      .invoice-summary {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .invoice-group {
+        margin-top: 1rem;
+      }
+
+      .invoice-group p {
+        margin-bottom: 1rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .invoice-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .invoice-card {
+        min-height: 100%;
+      }
+
+      .invoice-meta div {
+        grid-template-columns: 8.2rem minmax(0, 1fr);
+      }
+
+      .invoice-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .invoice-flow-card .mini-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1383,6 +1439,7 @@
         .calendar-summary,
         .tenant-summary,
         .workorder-summary,
+        .invoice-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1394,6 +1451,7 @@
         .calendar-grid,
         .tenant-grid,
         .workorder-grid,
+        .invoice-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1447,6 +1505,7 @@
         .calendar-summary,
         .tenant-summary,
         .workorder-summary,
+        .invoice-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1458,6 +1517,7 @@
         .calendar-grid,
         .tenant-grid,
         .workorder-grid,
+        .invoice-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1476,6 +1536,7 @@
         .calendar-meta div,
         .tenant-meta div,
         .workorder-meta div,
+        .invoice-meta div,
         .document-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
@@ -1490,6 +1551,7 @@
         .auto-load-card .mini-list,
         .workflow-card .mini-list,
         .workorder-flow-card .mini-list,
+        .invoice-flow-card .mini-list,
         .filing-rules-card .mini-list {
           grid-template-columns: 1fr;
         }
@@ -1948,6 +2010,7 @@
                 <div class="history-month"><span>Dec</span><strong>$4,954</strong></div>
               </div>
             </div>
+            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card inspection-command" id="inspection-command-center" aria-labelledby="inspection-command-title">
@@ -2955,6 +3018,146 @@
             </div>
           </section>
 
+          <section class="card invoice-section" id="invoices" aria-labelledby="invoices-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Invoice Module</p>
+                <h2 id="invoices-title">Invoices</h2>
+                <p>Curb Boss will help landlords track vendor invoices, contractor bills, tenant invoices, guest balances, repair charges, payment status, receipt status, and tax categories in one connected workspace.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Coming Soon</span></div>
+            </div>
+
+            <div class="invoice-summary" aria-label="Invoice preview metrics">
+              <div class="invoice-summary-card"><span>Vendor Invoices</span><strong>3</strong></div>
+              <div class="invoice-summary-card"><span>Tenant / Guest Invoices</span><strong>3</strong></div>
+              <div class="invoice-summary-card"><span>Paid Invoices</span><strong>1</strong></div>
+              <div class="invoice-summary-card"><span>Pending Invoices</span><strong>3</strong></div>
+              <div class="invoice-summary-card"><span>Missing Receipts</span><strong>1</strong></div>
+              <div class="invoice-summary-card"><span>Deduction Ready</span><strong>$350</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Invoice status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip ready">Received</span>
+              <span class="status-chip pending">Pending</span>
+              <span class="status-chip paid">Paid</span>
+              <span class="status-chip warning">Balance Due</span>
+              <span class="status-chip missing">Receipt Missing</span>
+              <span class="status-chip ready">Deduction Ready</span>
+              <span class="status-chip uploaded">Income Updated</span>
+              <span class="status-chip recurring">Calendar Active</span>
+              <span class="status-chip open">Linked Work Order</span>
+            </div>
+
+            <div class="invoice-group" aria-labelledby="vendor-contractor-invoices-title">
+              <h3 id="vendor-contractor-invoices-title">Vendor / Contractor Invoices</h3>
+              <p>Invoices received from contractors, cleaners, inspectors, and service providers.</p>
+              <div class="invoice-grid" aria-label="Vendor and contractor invoice cards">
+                <article class="invoice-card">
+                  <h3>Plumbing Repair Invoice</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Vendor</dt><dd>Plumber</dd></div>
+                    <div><dt>Amount</dt><dd>$350</dd></div>
+                    <div><dt>Linked work order</dt><dd><span class="status-chip open">Plumbing Review</span></dd></div>
+                    <div><dt>Status</dt><dd><span class="status-chip ready">Received</span></dd></div>
+                    <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                    <div><dt>Tax category</dt><dd>Repairs</dd></div>
+                    <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
+                  </dl>
+                </article>
+
+                <article class="invoice-card">
+                  <h3>Mold Inspection Invoice</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Vendor</dt><dd>Mold inspector</dd></div>
+                    <div><dt>Amount</dt><dd>$450</dd></div>
+                    <div><dt>Linked inspection</dt><dd>Mold / Moisture Inspection</dd></div>
+                    <div><dt>Status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                    <div><dt>Receipt status</dt><dd><span class="status-chip missing">Receipt Missing</span></dd></div>
+                    <div><dt>Tax category</dt><dd>Inspections</dd></div>
+                    <div><dt>Tax status</dt><dd><span class="status-chip missing">Needs receipt</span></dd></div>
+                  </dl>
+                </article>
+
+                <article class="invoice-card">
+                  <h3>HVAC Service Invoice</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Vendor</dt><dd>HVAC technician</dd></div>
+                    <div><dt>Amount</dt><dd>$350</dd></div>
+                    <div><dt>Linked work order</dt><dd><span class="status-chip open">HVAC Filter Check</span></dd></div>
+                    <div><dt>Status</dt><dd><span class="status-chip pending">Scheduled</span></dd></div>
+                    <div><dt>Receipt status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                    <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                    <div><dt>Tax status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                  </dl>
+                </article>
+              </div>
+            </div>
+
+            <div class="invoice-group" aria-labelledby="tenant-guest-invoices-title">
+              <h3 id="tenant-guest-invoices-title">Tenant / Guest Invoices</h3>
+              <p>Invoices or balances owed by tenants, room renters, furnished rental guests, or short-term stay guests.</p>
+              <div class="invoice-grid" aria-label="Tenant and guest invoice cards">
+                <article class="invoice-card">
+                  <h3>Room 1 Rent Invoice</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Occupant type</dt><dd>Room rental / furnished rental</dd></div>
+                    <div><dt>Amount due</dt><dd>$4,954</dd></div>
+                    <div><dt>Due date</dt><dd>Monthly</dd></div>
+                    <div><dt>Payment status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                    <div><dt>Income tracker</dt><dd><span class="status-chip uploaded">Updated</span></dd></div>
+                    <div><dt>Calendar reminder</dt><dd>Cleared</dd></div>
+                  </dl>
+                </article>
+
+                <article class="invoice-card">
+                  <h3>Future Guest Balance</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Occupant type</dt><dd>Short-term / furnished stay</dd></div>
+                    <div><dt>Amount due</dt><dd>$900</dd></div>
+                    <div><dt>Due date</dt><dd>Before check-in</dd></div>
+                    <div><dt>Payment status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                    <div><dt>Income tracker</dt><dd>Not posted yet</dd></div>
+                    <div><dt>Calendar reminder</dt><dd><span class="status-chip recurring">Calendar Active</span></dd></div>
+                  </dl>
+                </article>
+
+                <article class="invoice-card">
+                  <h3>Damage / Cleaning Charge</h3>
+                  <dl class="invoice-meta">
+                    <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                    <div><dt>Occupant type</dt><dd>Furnished rental guest</dd></div>
+                    <div><dt>Amount due</dt><dd>$150</dd></div>
+                    <div><dt>Due date</dt><dd>After move-out inspection</dd></div>
+                    <div><dt>Payment status</dt><dd><span class="status-chip warning">Balance Due</span></dd></div>
+                    <div><dt>Linked record</dt><dd>Move-out inspection</dd></div>
+                    <div><dt>Boss Alert</dt><dd><span class="status-chip high">Follow up needed</span></dd></div>
+                  </dl>
+                </article>
+              </div>
+            </div>
+
+            <div class="invoice-flow-card" aria-labelledby="invoice-connected-workflow-title">
+              <h3 id="invoice-connected-workflow-title">Connected Invoice Workflow</h3>
+              <ul class="mini-list">
+                <li>Vendor invoices flow into the Expense Tracker</li>
+                <li>Contractor invoices can link to Work Orders</li>
+                <li>Inspection invoices can link to Inspection Command Center</li>
+                <li>Tenant and guest invoices flow into Income &amp; Rent Tracker</li>
+                <li>Paid invoices update Payment Status</li>
+                <li>Unpaid invoices create Boss Alerts</li>
+                <li>Invoice due dates auto-load to the Landlord Calendar</li>
+                <li>Deductible invoices flow into the Tax Summary Dashboard</li>
+              </ul>
+            </div>
+          </section>
+
           <section class="card document-section" id="lease-document-vault" aria-labelledby="lease-document-vault-title">
             <div class="section-header">
               <div>
@@ -3159,7 +3362,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real invoicing, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
