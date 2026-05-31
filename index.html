@@ -495,1067 +495,8 @@
       .receipt-tracker,
       .tax-dashboard,
       .calendar-section,
-      .document-section,
-      .roadmap-section {
-        grid-column: span 12;
-        padding: clamp(1.2rem, 3vw, 2rem);
-      }
-
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-        margin-bottom: 0.35rem;
-        color: var(--deep-green);
-        font-size: clamp(1.45rem, 3vw, 2.2rem);
-        letter-spacing: -0.055em;
-      }
-
-      .section-header p {
-        max-width: 48rem;
-        margin-bottom: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .section-pill {
-        flex: 0 0 auto;
-        padding: 0.78rem 1rem;
-        border: 1px solid rgba(244, 197, 66, 0.48);
-        border-radius: 999px;
-        background: var(--yellow-soft);
-        color: var(--deep-green);
-        font-weight: 950;
-        white-space: nowrap;
-      }
-
-      .income-summary,
-      .expense-summary,
-      .alert-summary,
-      .inspection-summary,
-      .receipt-summary,
-      .repair-summary,
-      .calendar-summary,
-      .document-summary,
-      .tax-summary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.75rem;
-        margin: 1.2rem 0;
-      }
-
-      .income-summary,
-      .expense-summary,
-      .repair-summary,
-      .calendar-summary,
-      .document-summary {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-      }
-
-      .income-summary-card,
-      .expense-summary-card,
-      .alert-summary-card,
-      .inspection-summary-card,
-      .receipt-summary-card,
-      .repair-summary-card,
-      .calendar-summary-card,
-      .document-summary-card,
-      .tax-summary-card {
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
-      }
-
-      .income-summary-card span,
-      .expense-summary-card span,
-      .alert-summary-card span,
-      .inspection-summary-card span,
-      .receipt-summary-card span,
-      .repair-summary-card span,
-      .calendar-summary-card span,
-      .document-summary-card span,
-      .tax-summary-card span {
-        display: block;
-        margin-bottom: 0.45rem;
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .income-summary-card strong,
-      .expense-summary-card strong,
-      .alert-summary-card strong,
-      .inspection-summary-card strong,
-      .receipt-summary-card strong,
-      .repair-summary-card strong,
-      .calendar-summary-card strong,
-      .document-summary-card strong,
-      .tax-summary-card strong {
-        display: block;
-        color: var(--deep-green);
-        font-size: 1.85rem;
-        line-height: 1;
-        letter-spacing: -0.06em;
-      }
-
-      .income-grid,
-      .expense-grid,
-      .inspection-grid,
-      .repair-grid,
-      .receipt-grid,
-      .calendar-grid,
-      .document-grid,
-      .tax-deduction-grid,
-      .roadmap-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.9rem;
-      }
-
-      .income-grid,
-      .repair-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .income-card,
-      .expense-card,
-      .inspection-card,
-      .repair-card,
-      .receipt-card,
-      .calendar-card,
-      .document-card,
-      .auto-load-card,
-      .filing-rules-card,
-      .tax-deduction-card,
-      .tax-checklist,
-      .roadmap-card {
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1.1rem;
-        background: #ffffff;
-        box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
-      }
-
-      .income-card h3,
-      .expense-card h3,
-      .inspection-card h3,
-      .repair-card h3,
-      .receipt-card h3,
-      .calendar-card h3,
-      .document-card h3,
-      .auto-load-card h3,
-      .filing-rules-card h3,
-      .tax-deduction-card h3,
-      .tax-checklist h3,
-      .roadmap-card h3 {
-        margin-bottom: 0.75rem;
-        color: var(--deep-green);
-        font-size: 1.05rem;
-        line-height: 1.2;
-        letter-spacing: -0.035em;
-      }
-
-      .income-meta,
-      .expense-meta,
-      .inspection-meta,
-      .repair-meta,
-      .receipt-meta,
-      .calendar-meta,
-      .document-meta,
-      .tax-deduction-meta {
-        display: grid;
-        gap: 0.52rem;
-        margin: 0;
-      }
-
-      .income-meta div,
-      .expense-meta div,
-      .inspection-meta div,
-      .repair-meta div,
-      .receipt-meta div,
-      .calendar-meta div,
-      .document-meta div,
-      .tax-deduction-meta div {
-        display: grid;
-        grid-template-columns: 6.8rem minmax(0, 1fr);
-        gap: 0.5rem;
-        align-items: start;
-        padding-top: 0.52rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .income-meta dt,
-      .expense-meta dt,
-      .inspection-meta dt,
-      .repair-meta dt,
-      .receipt-meta dt,
-      .calendar-meta dt,
-      .document-meta dt,
-      .tax-deduction-meta dt {
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .income-meta dd,
-      .expense-meta dd,
-      .inspection-meta dd,
-      .repair-meta dd,
-      .receipt-meta dd,
-      .calendar-meta dd,
-      .document-meta dd,
-      .tax-deduction-meta dd {
-        margin: 0;
-        color: var(--ink);
-        line-height: 1.35;
-      }
-
-      .status-chip {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.26rem 0.55rem;
-        border-radius: 999px;
-        background: var(--deep-green-3);
-        color: var(--deep-green);
-        font-size: 0.82rem;
-        font-weight: 950;
-      }
-
-      .status-chip::before {
-        content: "";
-        width: 0.42rem;
-        height: 0.42rem;
-        border-radius: 999px;
-        background: var(--deep-green);
-      }
-
-      .status-chip.warning {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.warning::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.follow-up {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.follow-up::before {
-        background: #d96b35;
-      }
-
-      .status-chip.uploaded,
-      .status-chip.ready {
-        background: var(--deep-green-3);
-      }
-
-      .status-chip.missing {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.missing::before {
-        background: #d96b35;
-      }
-
-      .status-chip.review {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.review::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.open,
-      .status-chip.pending {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.open::before,
-      .status-chip.pending::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.low {
-        background: #eef5f2;
-      }
-
-      .status-chip.high {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.high::before {
-        background: #d96b35;
-      }
-
-      .status-chip.paid,
-      .status-chip.rental,
-      .status-chip.one-time {
-        background: var(--deep-green-3);
-      }
-
-      .status-chip.recurring {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.recurring::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.unpaid,
-      .status-chip.late {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.unpaid::before,
-      .status-chip.late::before {
-        background: #d96b35;
-      }
-
-      .status-chip.progress {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.progress::before {
-        background: var(--yellow);
-      }
-
-
-      .calendar-section {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .calendar-section::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(circle at top right, rgba(244, 197, 66, 0.12), transparent 18rem);
-      }
-
-      .calendar-section > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .calendar-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .calendar-card {
-        min-height: 100%;
-      }
-
-      .auto-load-panel {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
-        gap: 1rem;
-        margin-top: 1rem;
-        align-items: stretch;
-      }
-
-      .auto-load-copy {
-        padding: 1rem;
-        border: 1px solid rgba(244, 197, 66, 0.35);
-        border-radius: 1.1rem;
-        background: var(--yellow-soft);
-      }
-
-      .auto-load-copy h3 {
-        margin-bottom: 0.55rem;
-        color: var(--deep-green);
-        font-size: 1.25rem;
-        letter-spacing: -0.04em;
-      }
-
-      .auto-load-copy p {
-        margin-bottom: 0.9rem;
-        color: var(--deep-green);
-        line-height: 1.55;
-      }
-
-      .auto-load-card .mini-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .document-section {
-        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 72%, rgba(255, 246, 217, 0.6) 100%);
-      }
-
-      .document-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .document-card {
-        min-height: 100%;
-      }
-
-      .document-meta div {
-        grid-template-columns: 8rem minmax(0, 1fr);
-      }
-
-      .filing-rules-card {
-        margin-top: 1rem;
-        border-color: rgba(244, 197, 66, 0.35);
-      }
-
-      .filing-rules-card .mini-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-
-      .roadmap-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .roadmap-card {
-        display: flex;
-        min-height: 100%;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .roadmap-card p {
-        margin-bottom: 1rem;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .roadmap-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        margin-top: auto;
-      }
-
-      .status-chip.integration {
-        background: #edf2ff;
-        color: #243b73;
-      }
-
-      .status-chip.integration::before {
-        background: #5571c4;
-      }
-
-      .status-chip.automation {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.automation::before {
-        background: var(--yellow);
-      }
-
-      .tax-checklist {
-        margin-top: 1rem;
-      }
-
-      .tax-checklist .mini-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .income-badge-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-        margin: -0.2rem 0 1rem;
-      }
-
-      .income-history {
-        margin-top: 1rem;
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1.1rem;
-        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
-      }
-
-      .income-history h3 {
-        margin-bottom: 0.85rem;
-        color: var(--deep-green);
-        font-size: 1.08rem;
-        letter-spacing: -0.035em;
-      }
-
-      .history-grid {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0.55rem;
-      }
-
-      .history-month {
-        padding: 0.75rem 0.55rem;
-        border: 1px solid rgba(11, 61, 53, 0.12);
-        border-radius: 0.85rem;
-        background: #ffffff;
-        text-align: center;
-      }
-
-      .history-month span {
-        display: block;
-        margin-bottom: 0.25rem;
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .history-month strong {
-        color: var(--deep-green);
-        font-size: 0.95rem;
-      }
-
-      .property-dashboard-grid .detail-card {
-        min-height: 100%;
-      }
-
-      .income-tracker,
-      .expense-tracker,
-      .alert-queue,
-      .inspection-command,
-      .repair-tracker,
-      .receipt-tracker,
-      .tax-dashboard,
-      .calendar-section,
-      .roadmap-section {
-        grid-column: span 12;
-        padding: clamp(1.2rem, 3vw, 2rem);
-      }
-
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      }
-
-      .section-header h2 {
-        margin-bottom: 0.35rem;
-        color: var(--deep-green);
-        font-size: clamp(1.45rem, 3vw, 2.2rem);
-        letter-spacing: -0.055em;
-      }
-
-      .section-header p {
-        max-width: 48rem;
-        margin-bottom: 0;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .section-pill {
-        flex: 0 0 auto;
-        padding: 0.78rem 1rem;
-        border: 1px solid rgba(244, 197, 66, 0.48);
-        border-radius: 999px;
-        background: var(--yellow-soft);
-        color: var(--deep-green);
-        font-weight: 950;
-        white-space: nowrap;
-      }
-
-      .income-summary,
-      .expense-summary,
-      .alert-summary,
-      .inspection-summary,
-      .receipt-summary,
-      .repair-summary,
-      .calendar-summary,
-      .tax-summary-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.75rem;
-        margin: 1.2rem 0;
-      }
-
-      .income-summary,
-      .expense-summary,
-      .repair-summary,
-      .calendar-summary {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-      }
-
-      .income-summary-card,
-      .expense-summary-card,
-      .alert-summary-card,
-      .inspection-summary-card,
-      .receipt-summary-card,
-      .repair-summary-card,
-      .calendar-summary-card,
-      .tax-summary-card {
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
-      }
-
-      .income-summary-card span,
-      .expense-summary-card span,
-      .alert-summary-card span,
-      .inspection-summary-card span,
-      .receipt-summary-card span,
-      .repair-summary-card span,
-      .calendar-summary-card span,
-      .tax-summary-card span {
-        display: block;
-        margin-bottom: 0.45rem;
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .income-summary-card strong,
-      .expense-summary-card strong,
-      .alert-summary-card strong,
-      .inspection-summary-card strong,
-      .receipt-summary-card strong,
-      .repair-summary-card strong,
-      .calendar-summary-card strong,
-      .tax-summary-card strong {
-        display: block;
-        color: var(--deep-green);
-        font-size: 1.85rem;
-        line-height: 1;
-        letter-spacing: -0.06em;
-      }
-
-      .income-grid,
-      .expense-grid,
-      .inspection-grid,
-      .repair-grid,
-      .receipt-grid,
-      .calendar-grid,
-      .tax-deduction-grid,
-      .roadmap-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.9rem;
-      }
-
-      .income-grid,
-      .repair-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .income-card,
-      .expense-card,
-      .inspection-card,
-      .repair-card,
-      .receipt-card,
-      .calendar-card,
-      .auto-load-card,
-      .tax-deduction-card,
-      .tax-checklist,
-      .roadmap-card {
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1.1rem;
-        background: #ffffff;
-        box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
-      }
-
-      .income-card h3,
-      .expense-card h3,
-      .inspection-card h3,
-      .repair-card h3,
-      .receipt-card h3,
-      .calendar-card h3,
-      .auto-load-card h3,
-      .tax-deduction-card h3,
-      .tax-checklist h3,
-      .roadmap-card h3 {
-        margin-bottom: 0.75rem;
-        color: var(--deep-green);
-        font-size: 1.05rem;
-        line-height: 1.2;
-        letter-spacing: -0.035em;
-      }
-
-      .income-meta,
-      .expense-meta,
-      .inspection-meta,
-      .repair-meta,
-      .receipt-meta,
-      .calendar-meta,
-      .tax-deduction-meta {
-        display: grid;
-        gap: 0.52rem;
-        margin: 0;
-      }
-
-      .income-meta div,
-      .expense-meta div,
-      .inspection-meta div,
-      .repair-meta div,
-      .receipt-meta div,
-      .calendar-meta div,
-      .tax-deduction-meta div {
-        display: grid;
-        grid-template-columns: 6.8rem minmax(0, 1fr);
-        gap: 0.5rem;
-        align-items: start;
-        padding-top: 0.52rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .income-meta dt,
-      .expense-meta dt,
-      .inspection-meta dt,
-      .repair-meta dt,
-      .receipt-meta dt,
-      .calendar-meta dt,
-      .tax-deduction-meta dt {
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .income-meta dd,
-      .expense-meta dd,
-      .inspection-meta dd,
-      .repair-meta dd,
-      .receipt-meta dd,
-      .calendar-meta dd,
-      .tax-deduction-meta dd {
-        margin: 0;
-        color: var(--ink);
-        line-height: 1.35;
-      }
-
-      .status-chip {
-        display: inline-flex;
-        width: fit-content;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.26rem 0.55rem;
-        border-radius: 999px;
-        background: var(--deep-green-3);
-        color: var(--deep-green);
-        font-size: 0.82rem;
-        font-weight: 950;
-      }
-
-      .status-chip::before {
-        content: "";
-        width: 0.42rem;
-        height: 0.42rem;
-        border-radius: 999px;
-        background: var(--deep-green);
-      }
-
-      .status-chip.warning {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.warning::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.follow-up {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.follow-up::before {
-        background: #d96b35;
-      }
-
-      .status-chip.uploaded,
-      .status-chip.ready {
-        background: var(--deep-green-3);
-      }
-
-      .status-chip.missing {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.missing::before {
-        background: #d96b35;
-      }
-
-      .status-chip.review {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.review::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.open,
-      .status-chip.pending {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.open::before,
-      .status-chip.pending::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.low {
-        background: #eef5f2;
-      }
-
-      .status-chip.high {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.high::before {
-        background: #d96b35;
-      }
-
-      .status-chip.paid,
-      .status-chip.rental,
-      .status-chip.one-time {
-        background: var(--deep-green-3);
-      }
-
-      .status-chip.recurring {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.recurring::before {
-        background: var(--yellow);
-      }
-
-      .status-chip.unpaid,
-      .status-chip.late {
-        background: #fce9df;
-        color: #79351d;
-      }
-
-      .status-chip.unpaid::before,
-      .status-chip.late::before {
-        background: #d96b35;
-      }
-
-      .status-chip.progress {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.progress::before {
-        background: var(--yellow);
-      }
-
-
-      .calendar-section {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .calendar-section::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(circle at top right, rgba(244, 197, 66, 0.12), transparent 18rem);
-      }
-
-      .calendar-section > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .calendar-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .calendar-card {
-        min-height: 100%;
-      }
-
-      .auto-load-panel {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
-        gap: 1rem;
-        margin-top: 1rem;
-        align-items: stretch;
-      }
-
-      .auto-load-copy {
-        padding: 1rem;
-        border: 1px solid rgba(244, 197, 66, 0.35);
-        border-radius: 1.1rem;
-        background: var(--yellow-soft);
-      }
-
-      .auto-load-copy h3 {
-        margin-bottom: 0.55rem;
-        color: var(--deep-green);
-        font-size: 1.25rem;
-        letter-spacing: -0.04em;
-      }
-
-      .auto-load-copy p {
-        margin-bottom: 0.9rem;
-        color: var(--deep-green);
-        line-height: 1.55;
-      }
-
-      .auto-load-card .mini-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-
-      .roadmap-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .roadmap-card {
-        display: flex;
-        min-height: 100%;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .roadmap-card p {
-        margin-bottom: 1rem;
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .roadmap-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        margin-top: auto;
-      }
-
-      .status-chip.integration {
-        background: #edf2ff;
-        color: #243b73;
-      }
-
-      .status-chip.integration::before {
-        background: #5571c4;
-      }
-
-      .status-chip.automation {
-        background: var(--yellow-soft);
-      }
-
-      .status-chip.automation::before {
-        background: var(--yellow);
-      }
-
-      .tax-checklist {
-        margin-top: 1rem;
-      }
-
-      .tax-checklist .mini-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .income-badge-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
-        margin: -0.2rem 0 1rem;
-      }
-
-      .income-history {
-        margin-top: 1rem;
-        padding: 1rem;
-        border: 1px solid var(--border);
-        border-radius: 1.1rem;
-        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 100%);
-      }
-
-      .income-history h3 {
-        margin-bottom: 0.85rem;
-        color: var(--deep-green);
-        font-size: 1.08rem;
-        letter-spacing: -0.035em;
-      }
-
-      .history-grid {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0.55rem;
-      }
-
-      .history-month {
-        padding: 0.75rem 0.55rem;
-        border: 1px solid rgba(11, 61, 53, 0.12);
-        border-radius: 0.85rem;
-        background: #ffffff;
-        text-align: center;
-      }
-
-      .history-month span {
-        display: block;
-        margin-bottom: 0.25rem;
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 950;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .property-detail strong {
-        display: block;
-        color: #ffffff;
-        line-height: 1.35;
-      }
-
-      .property-note {
-        position: relative;
-        z-index: 1;
-        margin: 1rem 0 0;
-        padding: 1rem 1.1rem;
-        border: 1px solid rgba(244, 197, 66, 0.32);
-        border-radius: 1rem;
-        background: rgba(255, 246, 217, 0.1);
-        color: rgba(255, 255, 255, 0.88);
-        line-height: 1.55;
-      }
-
-      .property-dashboard-grid {
-        grid-column: span 12;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .detail-card {
-        padding: 1.15rem;
-      }
-
-      .property-dashboard-grid .detail-card {
-        min-height: 100%;
-      }
-
-      .income-tracker,
-      .expense-tracker,
-      .alert-queue,
-      .inspection-command,
-      .repair-tracker,
-      .receipt-tracker,
-      .tax-dashboard,
-      .calendar-section,
       .tenant-section,
+      .workorder-section,
       .document-section,
       .roadmap-section {
         grid-column: span 12;
@@ -1603,6 +544,7 @@
       .repair-summary,
       .calendar-summary,
       .tenant-summary,
+      .workorder-summary,
       .document-summary,
       .tax-summary-grid {
         display: grid;
@@ -1616,6 +558,7 @@
       .repair-summary,
       .calendar-summary,
       .tenant-summary,
+      .workorder-summary,
       .document-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
@@ -1628,6 +571,7 @@
       .repair-summary-card,
       .calendar-summary-card,
       .tenant-summary-card,
+      .workorder-summary-card,
       .document-summary-card,
       .tax-summary-card {
         padding: 1rem;
@@ -1644,6 +588,7 @@
       .repair-summary-card span,
       .calendar-summary-card span,
       .tenant-summary-card span,
+      .workorder-summary-card span,
       .document-summary-card span,
       .tax-summary-card span {
         display: block;
@@ -1663,6 +608,7 @@
       .repair-summary-card strong,
       .calendar-summary-card strong,
       .tenant-summary-card strong,
+      .workorder-summary-card strong,
       .document-summary-card strong,
       .tax-summary-card strong {
         display: block;
@@ -1679,6 +625,7 @@
       .receipt-grid,
       .calendar-grid,
       .tenant-grid,
+      .workorder-grid,
       .workflow-grid,
       .document-grid,
       .tax-deduction-grid,
@@ -1700,7 +647,9 @@
       .receipt-card,
       .calendar-card,
       .tenant-card,
+      .workorder-card,
       .workflow-card,
+      .workorder-flow-card,
       .document-card,
       .auto-load-card,
       .filing-rules-card,
@@ -1721,7 +670,9 @@
       .receipt-card h3,
       .calendar-card h3,
       .tenant-card h3,
+      .workorder-card h3,
       .workflow-card h3,
+      .workorder-flow-card h3,
       .document-card h3,
       .auto-load-card h3,
       .filing-rules-card h3,
@@ -1742,6 +693,7 @@
       .receipt-meta,
       .calendar-meta,
       .tenant-meta,
+      .workorder-meta,
       .document-meta,
       .tax-deduction-meta {
         display: grid;
@@ -1756,6 +708,7 @@
       .receipt-meta div,
       .calendar-meta div,
       .tenant-meta div,
+      .workorder-meta div,
       .document-meta div,
       .tax-deduction-meta div {
         display: grid;
@@ -1773,6 +726,7 @@
       .receipt-meta dt,
       .calendar-meta dt,
       .tenant-meta dt,
+      .workorder-meta dt,
       .document-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
@@ -1789,6 +743,7 @@
       .receipt-meta dd,
       .calendar-meta dd,
       .tenant-meta dd,
+      .workorder-meta dd,
       .document-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
@@ -1998,6 +953,31 @@
 
       .workflow-card .mini-list {
         grid-template-columns: 1fr;
+      }
+
+      .workorder-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(255, 246, 217, 0.42) 100%);
+      }
+
+      .workorder-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .workorder-card {
+        min-height: 100%;
+      }
+
+      .workorder-meta div {
+        grid-template-columns: 8.4rem minmax(0, 1fr);
+      }
+
+      .workorder-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .workorder-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .document-section {
@@ -2402,6 +1382,7 @@
         .repair-summary,
         .calendar-summary,
         .tenant-summary,
+        .workorder-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -2412,6 +1393,7 @@
         .receipt-grid,
         .calendar-grid,
         .tenant-grid,
+        .workorder-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -2464,6 +1446,7 @@
         .repair-summary,
         .calendar-summary,
         .tenant-summary,
+        .workorder-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -2474,6 +1457,7 @@
         .receipt-grid,
         .calendar-grid,
         .tenant-grid,
+        .workorder-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -2491,6 +1475,7 @@
         .receipt-meta div,
         .calendar-meta div,
         .tenant-meta div,
+        .workorder-meta div,
         .document-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
@@ -2504,6 +1489,7 @@
         .auto-load-panel,
         .auto-load-card .mini-list,
         .workflow-card .mini-list,
+        .workorder-flow-card .mini-list,
         .filing-rules-card .mini-list {
           grid-template-columns: 1fr;
         }
@@ -3853,6 +2839,122 @@
             </div>
           </section>
 
+          <section class="card workorder-section" id="work-orders" aria-labelledby="work-orders-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Maintenance Module</p>
+                <h2 id="work-orders-title">Work Orders</h2>
+                <p>Curb Boss will help landlords create, track, assign, and close maintenance work orders while connecting repairs to calendar reminders, vendor records, receipts, expenses, and tax categories.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Coming Soon</span></div>
+            </div>
+
+            <div class="workorder-summary" aria-label="Work order preview metrics">
+              <div class="workorder-summary-card"><span>Open Work Orders</span><strong>3</strong></div>
+              <div class="workorder-summary-card"><span>Scheduled Vendor Visits</span><strong>2</strong></div>
+              <div class="workorder-summary-card"><span>Waiting on Quote</span><strong>1</strong></div>
+              <div class="workorder-summary-card"><span>Completed This Month</span><strong>4</strong></div>
+              <div class="workorder-summary-card"><span>Receipt Missing</span><strong>1</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Work order status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip open">Open</span>
+              <span class="status-chip pending">Scheduled</span>
+              <span class="status-chip warning">Waiting on Quote</span>
+              <span class="status-chip high">High Priority</span>
+              <span class="status-chip ready">Vendor Assigned</span>
+              <span class="status-chip missing">Receipt Missing</span>
+              <span class="status-chip ready">Tax Ready</span>
+              <span class="status-chip recurring">Auto-Loaded to Calendar</span>
+              <span class="status-chip uploaded">Completed</span>
+            </div>
+
+            <div class="workorder-grid" aria-label="Work order preview cards for 41 N Ellamont St">
+              <article class="workorder-card">
+                <h3>Flooring / Moisture Review</h3>
+                <dl class="workorder-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Source</dt><dd>Mold / Moisture Inspection</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip high">High Priority</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip warning">Waiting on Quote</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Flooring contractor</dd></div>
+                  <div><dt>Scheduled date</dt><dd>Pending</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$750</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Receipt Missing</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Repairs / Maintenance</dd></div>
+                  <div><dt>Calendar</dt><dd>Auto-load when scheduled</dd></div>
+                  <div><dt>Next action</dt><dd>Get repair quote</dd></div>
+                </dl>
+              </article>
+
+              <article class="workorder-card">
+                <h3>HVAC Filter Check</h3>
+                <dl class="workorder-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Source</dt><dd>Preventive maintenance</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip pending">Scheduled</span></dd></div>
+                  <div><dt>Vendor</dt><dd>HVAC technician</dd></div>
+                  <div><dt>Scheduled date</dt><dd>June 3</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$350</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Maintenance</dd></div>
+                  <div><dt>Calendar</dt><dd><span class="status-chip recurring">Auto-Loaded to Calendar</span></dd></div>
+                  <div><dt>Next action</dt><dd>Confirm appointment</dd></div>
+                </dl>
+              </article>
+
+              <article class="workorder-card">
+                <h3>Plumbing Review</h3>
+                <dl class="workorder-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Source</dt><dd>Maintenance follow-up</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip open">Open</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Plumber</dd></div>
+                  <div><dt>Scheduled date</dt><dd>To be confirmed</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$350</dd></div>
+                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
+                  <div><dt>Tax category</dt><dd>Repairs</dd></div>
+                  <div><dt>Calendar</dt><dd>Add when date confirmed</dd></div>
+                  <div><dt>Next action</dt><dd>Review invoice</dd></div>
+                </dl>
+              </article>
+
+              <article class="workorder-card">
+                <h3>Smoke / CO Detector Check</h3>
+                <dl class="workorder-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Source</dt><dd>Safety inspection</dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip low">Low</span></dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip uploaded">Completed</span></dd></div>
+                  <div><dt>Vendor</dt><dd>Self-check</dd></div>
+                  <div><dt>Scheduled date</dt><dd>Completed this month</dd></div>
+                  <div><dt>Estimated cost</dt><dd>$0</dd></div>
+                  <div><dt>Receipt status</dt><dd>Not needed</dd></div>
+                  <div><dt>Tax category</dt><dd>Safety / Compliance</dd></div>
+                  <div><dt>Calendar</dt><dd>Next reminder needed</dd></div>
+                  <div><dt>Next action</dt><dd>Set next safety check</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="workorder-flow-card" aria-labelledby="workorder-connected-workflow-title">
+              <h3 id="workorder-connected-workflow-title">Connected Workflow</h3>
+              <ul class="mini-list">
+                <li>Tenant issues can create work orders</li>
+                <li>Inspection findings can create work orders</li>
+                <li>Work orders can assign vendors</li>
+                <li>Scheduled work orders auto-load to the calendar</li>
+                <li>Completed work orders can attach receipts</li>
+                <li>Repair costs flow into the Expense Tracker</li>
+                <li>Deductible repairs flow into the Tax Summary Dashboard</li>
+                <li>Unresolved work orders create Boss Alerts</li>
+              </ul>
+            </div>
+          </section>
+
           <section class="card document-section" id="lease-document-vault" aria-labelledby="lease-document-vault-title">
             <div class="section-header">
               <div>
@@ -4057,7 +3159,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
