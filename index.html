@@ -494,6 +494,7 @@
       .repair-tracker,
       .receipt-tracker,
       .tax-dashboard,
+      .calendar-section,
       .roadmap-section {
         grid-column: span 12;
         padding: clamp(1.2rem, 3vw, 2rem);
@@ -538,6 +539,7 @@
       .inspection-summary,
       .receipt-summary,
       .repair-summary,
+      .calendar-summary,
       .tax-summary-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -547,7 +549,8 @@
 
       .income-summary,
       .expense-summary,
-      .repair-summary {
+      .repair-summary,
+      .calendar-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
 
@@ -557,6 +560,7 @@
       .inspection-summary-card,
       .receipt-summary-card,
       .repair-summary-card,
+      .calendar-summary-card,
       .tax-summary-card {
         padding: 1rem;
         border: 1px solid var(--border);
@@ -570,6 +574,7 @@
       .inspection-summary-card span,
       .receipt-summary-card span,
       .repair-summary-card span,
+      .calendar-summary-card span,
       .tax-summary-card span {
         display: block;
         margin-bottom: 0.45rem;
@@ -586,6 +591,7 @@
       .inspection-summary-card strong,
       .receipt-summary-card strong,
       .repair-summary-card strong,
+      .calendar-summary-card strong,
       .tax-summary-card strong {
         display: block;
         color: var(--deep-green);
@@ -599,6 +605,7 @@
       .inspection-grid,
       .repair-grid,
       .receipt-grid,
+      .calendar-grid,
       .tax-deduction-grid,
       .roadmap-grid {
         display: grid;
@@ -616,6 +623,8 @@
       .inspection-card,
       .repair-card,
       .receipt-card,
+      .calendar-card,
+      .auto-load-card,
       .tax-deduction-card,
       .tax-checklist,
       .roadmap-card {
@@ -631,6 +640,8 @@
       .inspection-card h3,
       .repair-card h3,
       .receipt-card h3,
+      .calendar-card h3,
+      .auto-load-card h3,
       .tax-deduction-card h3,
       .tax-checklist h3,
       .roadmap-card h3 {
@@ -646,6 +657,7 @@
       .inspection-meta,
       .repair-meta,
       .receipt-meta,
+      .calendar-meta,
       .tax-deduction-meta {
         display: grid;
         gap: 0.52rem;
@@ -657,6 +669,7 @@
       .inspection-meta div,
       .repair-meta div,
       .receipt-meta div,
+      .calendar-meta div,
       .tax-deduction-meta div {
         display: grid;
         grid-template-columns: 6.8rem minmax(0, 1fr);
@@ -671,6 +684,7 @@
       .inspection-meta dt,
       .repair-meta dt,
       .receipt-meta dt,
+      .calendar-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
         font-size: 0.76rem;
@@ -684,6 +698,7 @@
       .inspection-meta dd,
       .repair-meta dd,
       .receipt-meta dd,
+      .calendar-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
         color: var(--ink);
@@ -806,6 +821,64 @@
         background: var(--yellow);
       }
 
+
+      .calendar-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .calendar-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(circle at top right, rgba(244, 197, 66, 0.12), transparent 18rem);
+      }
+
+      .calendar-section > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .calendar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .calendar-card {
+        min-height: 100%;
+      }
+
+      .auto-load-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+        gap: 1rem;
+        margin-top: 1rem;
+        align-items: stretch;
+      }
+
+      .auto-load-copy {
+        padding: 1rem;
+        border: 1px solid rgba(244, 197, 66, 0.35);
+        border-radius: 1.1rem;
+        background: var(--yellow-soft);
+      }
+
+      .auto-load-copy h3 {
+        margin-bottom: 0.55rem;
+        color: var(--deep-green);
+        font-size: 1.25rem;
+        letter-spacing: -0.04em;
+      }
+
+      .auto-load-copy p {
+        margin-bottom: 0.9rem;
+        color: var(--deep-green);
+        line-height: 1.55;
+      }
+
+      .auto-load-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
 
       .roadmap-grid {
@@ -1182,6 +1255,7 @@
         .alert-summary,
         .inspection-summary,
         .repair-summary,
+        .calendar-summary,
         .receipt-summary,
         .tax-summary-grid,
         .income-grid,
@@ -1189,6 +1263,7 @@
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
+        .calendar-grid,
         .tax-deduction-grid,
         .roadmap-grid,
         .tax-categories {
@@ -1199,7 +1274,8 @@
           grid-template-columns: repeat(6, minmax(0, 1fr));
         }
 
-        .alert-card {
+        .alert-card,
+        .auto-load-panel {
           grid-template-columns: 1fr;
         }
       }
@@ -1236,6 +1312,7 @@
         .alert-summary,
         .inspection-summary,
         .repair-summary,
+        .calendar-summary,
         .receipt-summary,
         .tax-summary-grid,
         .income-grid,
@@ -1243,6 +1320,7 @@
         .inspection-grid,
         .repair-grid,
         .receipt-grid,
+        .calendar-grid,
         .tax-deduction-grid,
         .roadmap-grid,
         .quick-actions,
@@ -1256,6 +1334,7 @@
         .inspection-meta div,
         .repair-meta div,
         .receipt-meta div,
+        .calendar-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
         }
@@ -1264,7 +1343,9 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .alert-meta {
+        .alert-meta,
+        .auto-load-panel,
+        .auto-load-card .mini-list {
           grid-template-columns: 1fr;
         }
       }
@@ -2372,6 +2453,141 @@
             </div>
           </section>
 
+
+          <section class="card calendar-section" id="landlord-calendar" aria-labelledby="landlord-calendar-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Future Calendar Module</p>
+                <h2 id="landlord-calendar-title">Landlord Calendar</h2>
+                <p>Curb Boss will help landlords see rent dates, inspections, repairs, cleaning appointments, receipt deadlines, lease reminders, invoice due dates, and tax tasks in one simple calendar.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Coming Soon</span></div>
+            </div>
+
+            <div class="calendar-summary" aria-label="Calendar preview metrics">
+              <div class="calendar-summary-card"><span>Upcoming Events</span><strong>8</strong></div>
+              <div class="calendar-summary-card"><span>Inspections This Month</span><strong>3</strong></div>
+              <div class="calendar-summary-card"><span>Repairs Scheduled</span><strong>2</strong></div>
+              <div class="calendar-summary-card"><span>Tax Deadlines</span><strong>1</strong></div>
+              <div class="calendar-summary-card"><span>Overdue Tasks</span><strong>0</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Calendar status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip automation">Auto-Loaded</span>
+              <span class="status-chip recurring">Calendar Linked</span>
+              <span class="status-chip recurring">Recurring</span>
+              <span class="status-chip warning">Due Soon</span>
+              <span class="status-chip pending">Scheduled</span>
+              <span class="status-chip high">Tax Deadline</span>
+              <span class="status-chip ready">Inspection</span>
+              <span class="status-chip open">Repair</span>
+              <span class="status-chip review">Receipt</span>
+              <span class="status-chip low">Invoice</span>
+            </div>
+
+            <div class="calendar-grid" aria-label="Landlord calendar preview events">
+              <article class="calendar-card">
+                <h3>Rent Due Reminder</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>Monthly on the 7th</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip rental">Rent</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip recurring">Recurring</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Related module</dt><dd>Income &amp; Rent Tracker</dd></div>
+                </dl>
+              </article>
+
+              <article class="calendar-card">
+                <h3>Mold / Moisture Follow-Up</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>June 4, 2026</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip ready">Inspection</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip warning">Due Soon</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip high">High</span></dd></div>
+                  <div><dt>Related module</dt><dd>Inspection Command Center</dd></div>
+                </dl>
+              </article>
+
+              <article class="calendar-card">
+                <h3>HVAC Filter Check</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>June 7, 2026</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip open">Maintenance</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip pending">Scheduled</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Related module</dt><dd>Repair &amp; Maintenance Tracker</dd></div>
+                </dl>
+              </article>
+
+              <article class="calendar-card">
+                <h3>Cleaning Appointment</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>June 10, 2026</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip ready">Cleaning</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip pending">Scheduled</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip low">Low</span></dd></div>
+                  <div><dt>Related module</dt><dd>Expense Tracker</dd></div>
+                </dl>
+              </article>
+
+              <article class="calendar-card">
+                <h3>Missing Receipt Deadline</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>June 12, 2026</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip review">Receipt</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip review">Medium</span></dd></div>
+                  <div><dt>Related module</dt><dd>Receipt &amp; Deduction Tracker</dd></div>
+                </dl>
+              </article>
+
+              <article class="calendar-card">
+                <h3>Property Tax Reminder</h3>
+                <dl class="calendar-meta">
+                  <div><dt>Date</dt><dd>Semiannual deadline</dd></div>
+                  <div><dt>Event type</dt><dd><span class="status-chip high">Tax</span></dd></div>
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Status</dt><dd><span class="status-chip high">Tax Deadline</span></dd></div>
+                  <div><dt>Priority</dt><dd><span class="status-chip high">High</span></dd></div>
+                  <div><dt>Related module</dt><dd>Tax Summary Dashboard</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="auto-load-panel" aria-labelledby="smart-calendar-auto-load-title">
+              <div class="auto-load-copy">
+                <p class="section-kicker">Future Automation</p>
+                <h3 id="smart-calendar-auto-load-title">Smart Calendar Auto-Load</h3>
+                <p>Enter it once. Curb Boss will automatically place dated rent reminders, inspections, repairs, work orders, invoices, receipt deadlines, lease reminders, and tax tasks on the landlord calendar.</p>
+                <div class="roadmap-badges">
+                  <span class="status-chip progress">Coming Soon</span>
+                  <span class="status-chip automation">Auto-Loaded</span>
+                  <span class="status-chip recurring">Calendar Linked</span>
+                </div>
+              </div>
+
+              <div class="auto-load-card">
+                <h3>Auto-Load Rules</h3>
+                <ul class="mini-list">
+                  <li>Rent due dates create recurring calendar reminders</li>
+                  <li>Inspections create calendar appointments</li>
+                  <li>Repairs with dates create vendor visit reminders</li>
+                  <li>Missing receipts create follow-up deadlines</li>
+                  <li>Invoices create due-date reminders</li>
+                  <li>Work orders create scheduled task reminders</li>
+                  <li>Lease and move-out dates create occupancy reminders</li>
+                  <li>Tax deadlines create tax prep reminders</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
           <section class="card roadmap-section" id="feature-roadmap" aria-labelledby="feature-roadmap-title">
             <div class="section-header">
               <div>
@@ -2477,7 +2693,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, messaging, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, messaging, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
