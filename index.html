@@ -500,6 +500,7 @@
       .invoice-section,
       .payment-section,
       .marketing-section,
+      .screening-section,
       .document-section,
       .roadmap-section {
         grid-column: span 12;
@@ -551,6 +552,7 @@
       .invoice-summary,
       .payment-summary,
       .marketing-summary,
+      .screening-summary,
       .document-summary,
       .tax-summary-grid {
         display: grid;
@@ -568,6 +570,7 @@
       .invoice-summary,
       .payment-summary,
       .marketing-summary,
+      .screening-summary,
       .document-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
@@ -584,6 +587,7 @@
       .invoice-summary-card,
       .payment-summary-card,
       .marketing-summary-card,
+      .screening-summary-card,
       .document-summary-card,
       .tax-summary-card {
         padding: 1rem;
@@ -604,6 +608,7 @@
       .invoice-summary-card span,
       .payment-summary-card span,
       .marketing-summary-card span,
+      .screening-summary-card span,
       .document-summary-card span,
       .tax-summary-card span {
         display: block;
@@ -627,6 +632,7 @@
       .invoice-summary-card strong,
       .payment-summary-card strong,
       .marketing-summary-card strong,
+      .screening-summary-card strong,
       .document-summary-card strong,
       .tax-summary-card strong {
         display: block;
@@ -648,6 +654,7 @@
       .payment-grid,
       .marketing-grid,
       .marketing-tools-grid,
+      .screening-grid,
       .workflow-grid,
       .document-grid,
       .tax-deduction-grid,
@@ -674,13 +681,16 @@
       .payment-card,
       .marketing-card,
       .marketing-tool-card,
+      .screening-card,
       .invoice-group,
       .workflow-card,
       .workorder-flow-card,
       .invoice-flow-card,
       .payment-flow-card,
       .marketing-flow-card,
+      .screening-flow-card,
       .payment-note,
+      .screening-note,
       .document-card,
       .auto-load-card,
       .filing-rules-card,
@@ -706,13 +716,16 @@
       .payment-card h3,
       .marketing-card h3,
       .marketing-tool-card h3,
+      .screening-card h3,
       .invoice-group h3,
       .workflow-card h3,
       .workorder-flow-card h3,
       .invoice-flow-card h3,
       .payment-flow-card h3,
       .marketing-flow-card h3,
+      .screening-flow-card h3,
       .payment-note h3,
+      .screening-note h3,
       .document-card h3,
       .auto-load-card h3,
       .filing-rules-card h3,
@@ -737,6 +750,7 @@
       .invoice-meta,
       .payment-meta,
       .marketing-meta,
+      .screening-meta,
       .document-meta,
       .tax-deduction-meta {
         display: grid;
@@ -755,6 +769,7 @@
       .invoice-meta div,
       .payment-meta div,
       .marketing-meta div,
+      .screening-meta div,
       .document-meta div,
       .tax-deduction-meta div {
         display: grid;
@@ -776,6 +791,7 @@
       .invoice-meta dt,
       .payment-meta dt,
       .marketing-meta dt,
+      .screening-meta dt,
       .document-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
@@ -796,6 +812,7 @@
       .invoice-meta dd,
       .payment-meta dd,
       .marketing-meta dd,
+      .screening-meta dd,
       .document-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
@@ -1145,6 +1162,47 @@
 
       .marketing-flow-card .mini-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screening-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(255, 246, 217, 0.42) 100%);
+      }
+
+      .screening-summary {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .screening-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .screening-card {
+        min-height: 100%;
+      }
+
+      .screening-meta div {
+        grid-template-columns: 8.8rem minmax(0, 1fr);
+      }
+
+      .screening-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .screening-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .screening-note {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.42);
+        background: var(--yellow-soft);
+        color: var(--deep-green);
+      }
+
+      .screening-note p {
+        margin-bottom: 0;
+        line-height: 1.55;
       }
 
       .document-section {
@@ -1553,6 +1611,7 @@
         .invoice-summary,
         .payment-summary,
         .marketing-summary,
+        .screening-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1568,6 +1627,7 @@
         .payment-grid,
         .marketing-grid,
         .marketing-tools-grid,
+        .screening-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1624,6 +1684,7 @@
         .invoice-summary,
         .payment-summary,
         .marketing-summary,
+        .screening-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1639,6 +1700,7 @@
         .payment-grid,
         .marketing-grid,
         .marketing-tools-grid,
+        .screening-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1660,6 +1722,7 @@
         .invoice-meta div,
         .payment-meta div,
         .marketing-meta div,
+        .screening-meta div,
         .document-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
@@ -1677,6 +1740,7 @@
         .invoice-flow-card .mini-list,
         .payment-flow-card .mini-list,
         .marketing-flow-card .mini-list,
+        .screening-flow-card .mini-list,
         .filing-rules-card .mini-list {
           grid-template-columns: 1fr;
         }
@@ -3524,6 +3588,112 @@
             </div>
           </section>
 
+          <section class="card screening-section" id="tenant-screening-integration" aria-labelledby="tenant-screening-integration-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Third-Party Integration</p>
+                <h2 id="tenant-screening-integration-title">Tenant Screening Integration</h2>
+                <p>Curb Boss will help landlords track applicant screening status, application progress, decision notes, and documentation while keeping sensitive screening reports with trusted third-party providers.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip integration">Third-Party Integration</span></div>
+            </div>
+
+            <div class="screening-summary" aria-label="Tenant screening integration preview metrics">
+              <div class="screening-summary-card"><span>Applications</span><strong>3</strong></div>
+              <div class="screening-summary-card"><span>Screening Pending</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Needs Review</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Approved</span><strong>1</strong></div>
+              <div class="screening-summary-card"><span>Declined</span><strong>0</strong></div>
+              <div class="screening-summary-card"><span>Future Integration</span><strong>Coming Soon</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Tenant screening status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip integration">Third-Party Integration</span>
+              <span class="status-chip pending">Screening Pending</span>
+              <span class="status-chip review">Needs Review</span>
+              <span class="status-chip ready">Approved</span>
+              <span class="status-chip missing">Declined</span>
+              <span class="status-chip low">Not Started</span>
+              <span class="status-chip warning">Documentation Needed</span>
+              <span class="status-chip uploaded">Provider Managed</span>
+            </div>
+
+            <div class="screening-grid" aria-label="Applicant screening preview cards for 41 N Ellamont St">
+              <article class="screening-card">
+                <h3>Room Rental Applicant</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Room 1</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip pending">Screening Pending</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Pending</dd></div>
+                  <div><dt>Background check status</dt><dd>Pending</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Pending</dd></div>
+                  <div><dt>Income verification</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>ID verification</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>Reference check</dt><dd><span class="status-chip warning">Needed</span></dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                  <div><dt>Notes</dt><dd>Applicant screening workflow preview only</dd></div>
+                </dl>
+              </article>
+
+              <article class="screening-card">
+                <h3>Furnished Stay Applicant</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Furnished stay</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip review">In Review</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Not started</dd></div>
+                  <div><dt>Background check status</dt><dd>Not started</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Not started</dd></div>
+                  <div><dt>Income verification</dt><dd>Uploaded to provider</dd></div>
+                  <div><dt>ID verification</dt><dd>Pending</dd></div>
+                  <div><dt>Reference check</dt><dd>Pending</dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
+                  <div><dt>Notes</dt><dd>Screening records should remain with approved screening provider</dd></div>
+                </dl>
+              </article>
+
+              <article class="screening-card">
+                <h3>Approved Applicant Example</h3>
+                <dl class="screening-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Unit / Room</dt><dd>Room rental</dd></div>
+                  <div><dt>Application status</dt><dd><span class="status-chip ready">Approved</span></dd></div>
+                  <div><dt>Screening provider</dt><dd><span class="status-chip integration">Future third-party integration</span></dd></div>
+                  <div><dt>Credit check status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Background check status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Eviction history status</dt><dd>Completed by provider</dd></div>
+                  <div><dt>Income verification</dt><dd>Reviewed</dd></div>
+                  <div><dt>ID verification</dt><dd>Reviewed</dd></div>
+                  <div><dt>Reference check</dt><dd>Reviewed</dd></div>
+                  <div><dt>Decision status</dt><dd><span class="status-chip ready">Approved</span></dd></div>
+                  <div><dt>Next action</dt><dd>Prepare lease or occupancy documents</dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="screening-flow-card" aria-labelledby="screening-connected-workflow-title">
+              <h3 id="screening-connected-workflow-title">Connected Screening Workflow</h3>
+              <ul class="mini-list">
+                <li>Marketing inquiries can become applicant records</li>
+                <li>Screening status connects to Tenant &amp; Guest Tracker</li>
+                <li>Approved applicants can move to Lease &amp; Document Vault</li>
+                <li>Move-in dates can auto-load to Landlord Calendar</li>
+                <li>Missing applicant documents can create Boss Alerts</li>
+                <li>Screening decisions can be documented without storing sensitive reports</li>
+                <li>Sensitive reports should stay with trusted third-party providers</li>
+              </ul>
+            </div>
+
+            <div class="screening-note" aria-label="Tenant screening clarity note">
+              <h3>Provider-managed screening only</h3>
+              <p>Curb Boss will track screening workflow status only. Sensitive credit, background, eviction, and identity reports should remain with approved third-party screening providers.</p>
+            </div>
+          </section>
+
           <section class="card document-section" id="lease-document-vault" aria-labelledby="lease-document-vault-title">
             <div class="section-header">
               <div>
@@ -3728,7 +3898,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real invoicing, real listing publishing, real booking, integrations, real payment processing, ACH, Stripe, PayPal, Zelle integration, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, real tenant screening, background checks, credit checks, eviction checks, Social Security number fields, sensitive applicant data storage, real work order submissions, real invoicing, real listing publishing, real booking, integrations, real payment processing, ACH, Stripe, PayPal, Zelle integration, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
