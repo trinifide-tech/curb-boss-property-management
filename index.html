@@ -498,6 +498,7 @@
       .tenant-section,
       .workorder-section,
       .invoice-section,
+      .payment-section,
       .document-section,
       .roadmap-section {
         grid-column: span 12;
@@ -547,6 +548,7 @@
       .tenant-summary,
       .workorder-summary,
       .invoice-summary,
+      .payment-summary,
       .document-summary,
       .tax-summary-grid {
         display: grid;
@@ -562,6 +564,7 @@
       .tenant-summary,
       .workorder-summary,
       .invoice-summary,
+      .payment-summary,
       .document-summary {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
@@ -576,6 +579,7 @@
       .tenant-summary-card,
       .workorder-summary-card,
       .invoice-summary-card,
+      .payment-summary-card,
       .document-summary-card,
       .tax-summary-card {
         padding: 1rem;
@@ -594,6 +598,7 @@
       .tenant-summary-card span,
       .workorder-summary-card span,
       .invoice-summary-card span,
+      .payment-summary-card span,
       .document-summary-card span,
       .tax-summary-card span {
         display: block;
@@ -615,6 +620,7 @@
       .tenant-summary-card strong,
       .workorder-summary-card strong,
       .invoice-summary-card strong,
+      .payment-summary-card strong,
       .document-summary-card strong,
       .tax-summary-card strong {
         display: block;
@@ -633,6 +639,7 @@
       .tenant-grid,
       .workorder-grid,
       .invoice-grid,
+      .payment-grid,
       .workflow-grid,
       .document-grid,
       .tax-deduction-grid,
@@ -656,10 +663,13 @@
       .tenant-card,
       .workorder-card,
       .invoice-card,
+      .payment-card,
       .invoice-group,
       .workflow-card,
       .workorder-flow-card,
       .invoice-flow-card,
+      .payment-flow-card,
+      .payment-note,
       .document-card,
       .auto-load-card,
       .filing-rules-card,
@@ -682,10 +692,13 @@
       .tenant-card h3,
       .workorder-card h3,
       .invoice-card h3,
+      .payment-card h3,
       .invoice-group h3,
       .workflow-card h3,
       .workorder-flow-card h3,
       .invoice-flow-card h3,
+      .payment-flow-card h3,
+      .payment-note h3,
       .document-card h3,
       .auto-load-card h3,
       .filing-rules-card h3,
@@ -708,6 +721,7 @@
       .tenant-meta,
       .workorder-meta,
       .invoice-meta,
+      .payment-meta,
       .document-meta,
       .tax-deduction-meta {
         display: grid;
@@ -724,6 +738,7 @@
       .tenant-meta div,
       .workorder-meta div,
       .invoice-meta div,
+      .payment-meta div,
       .document-meta div,
       .tax-deduction-meta div {
         display: grid;
@@ -743,6 +758,7 @@
       .tenant-meta dt,
       .workorder-meta dt,
       .invoice-meta dt,
+      .payment-meta dt,
       .document-meta dt,
       .tax-deduction-meta dt {
         color: var(--muted);
@@ -761,6 +777,7 @@
       .tenant-meta dd,
       .workorder-meta dd,
       .invoice-meta dd,
+      .payment-meta dd,
       .document-meta dd,
       .tax-deduction-meta dd {
         margin: 0;
@@ -1036,6 +1053,47 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .payment-section {
+        background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 70%, rgba(255, 246, 217, 0.46) 100%);
+      }
+
+      .payment-summary {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .payment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .payment-card {
+        min-height: 100%;
+      }
+
+      .payment-meta div {
+        grid-template-columns: 8.4rem minmax(0, 1fr);
+      }
+
+      .payment-flow-card {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.35);
+      }
+
+      .payment-flow-card .mini-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .payment-note {
+        margin-top: 1rem;
+        border-color: rgba(244, 197, 66, 0.42);
+        background: var(--yellow-soft);
+        color: var(--deep-green);
+      }
+
+      .payment-note p {
+        margin-bottom: 0;
+        line-height: 1.55;
+      }
+
       .document-section {
         background: linear-gradient(145deg, #ffffff 0%, #fbfdfc 72%, rgba(255, 246, 217, 0.6) 100%);
       }
@@ -1309,6 +1367,90 @@
         border-left-color: var(--yellow);
       }
 
+      .actions-card {
+        grid-column: span 12;
+        padding: clamp(1.2rem, 3vw, 2rem);
+        background: linear-gradient(145deg, var(--deep-green), var(--deep-green-2));
+        color: #ffffff;
+      }
+
+      .actions-card .section-kicker {
+        color: var(--yellow);
+      }
+
+      .actions-card h2 {
+        color: #ffffff;
+      }
+
+      .actions-card p {
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.55;
+      }
+
+      .tax-card p {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.2rem;
+      }
+
+      .action-button {
+        min-height: 3.3rem;
+        padding: 0 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 0.95rem;
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--deep-green);
+        cursor: default;
+        font-weight: 950;
+        text-align: left;
+        box-shadow: 0 10px 22px rgba(11, 61, 53, 0.14);
+      }
+
+      .action-button.primary {
+        border-color: rgba(244, 197, 66, 0.78);
+        background: var(--yellow-soft);
+        color: var(--deep-green);
+      }
+
+      .action-button.accent {
+        border-color: rgba(244, 197, 66, 0.78);
+        background: var(--yellow);
+        color: var(--deep-green);
+      }
+
+      .alert-queue {
+        border-color: rgba(244, 197, 66, 0.4);
+      }
+
+      .alert-list {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .alert-card {
+        display: grid;
+        grid-template-columns: minmax(12rem, 1.15fr) minmax(0, 2.4fr);
+        gap: 1rem;
+        align-items: start;
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-left: 0.35rem solid var(--deep-green);
+        border-radius: 1rem;
+        background: #ffffff;
+        box-shadow: 0 14px 30px rgba(11, 61, 53, 0.06);
+      }
+
+      .alert-card.high-priority {
+        border-left-color: var(--yellow);
+      }
+
       .alert-card h3 {
         margin-bottom: 0.55rem;
         color: var(--deep-green);
@@ -1440,6 +1582,7 @@
         .tenant-summary,
         .workorder-summary,
         .invoice-summary,
+        .payment-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1452,6 +1595,7 @@
         .tenant-grid,
         .workorder-grid,
         .invoice-grid,
+        .payment-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1506,6 +1650,7 @@
         .tenant-summary,
         .workorder-summary,
         .invoice-summary,
+        .payment-summary,
         .document-summary,
         .receipt-summary,
         .tax-summary-grid,
@@ -1518,6 +1663,7 @@
         .tenant-grid,
         .workorder-grid,
         .invoice-grid,
+        .payment-grid,
         .workflow-grid,
         .document-grid,
         .tax-deduction-grid,
@@ -1537,6 +1683,7 @@
         .tenant-meta div,
         .workorder-meta div,
         .invoice-meta div,
+        .payment-meta div,
         .document-meta div,
         .tax-deduction-meta div {
           grid-template-columns: 1fr;
@@ -1552,6 +1699,7 @@
         .workflow-card .mini-list,
         .workorder-flow-card .mini-list,
         .invoice-flow-card .mini-list,
+        .payment-flow-card .mini-list,
         .filing-rules-card .mini-list {
           grid-template-columns: 1fr;
         }
@@ -2010,7 +2158,6 @@
                 <div class="history-month"><span>Dec</span><strong>$4,954</strong></div>
               </div>
             </div>
-            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card inspection-command" id="inspection-command-center" aria-labelledby="inspection-command-title">
@@ -2160,6 +2307,7 @@
                 </dl>
               </article>
             </div>
+            <p class="property-note"><strong>Notes:</strong> Furnished rental property with income, inspections, repairs, receipts, and deductions tracked in one place.</p>
           </section>
 
           <section class="card repair-tracker" id="repair-maintenance-tracker" aria-labelledby="repair-maintenance-title">
@@ -3158,6 +3306,122 @@
             </div>
           </section>
 
+          <section class="card payment-section" id="payment-status-portal" aria-labelledby="payment-status-portal-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Payment Tracking Module</p>
+                <h2 id="payment-status-portal-title">Payment Status Portal</h2>
+                <p>Curb Boss will help landlords track rent, guest payments, deposits, balances, partial payments, late payments, and invoice payment status while connecting payment records to income, invoices, calendar reminders, and Boss Alerts.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Coming Soon</span></div>
+            </div>
+
+            <div class="payment-summary" aria-label="Payment status preview metrics">
+              <div class="payment-summary-card"><span>Paid This Month</span><strong>$4,954</strong></div>
+              <div class="payment-summary-card"><span>Pending Payments</span><strong>2</strong></div>
+              <div class="payment-summary-card"><span>Late Payments</span><strong>0</strong></div>
+              <div class="payment-summary-card"><span>Partial Payments</span><strong>1</strong></div>
+              <div class="payment-summary-card"><span>Balance Due</span><strong>$900</strong></div>
+              <div class="payment-summary-card"><span>Income Updated</span><strong>$4,954</strong></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Payment status badge examples">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip paid">Paid</span>
+              <span class="status-chip pending">Pending</span>
+              <span class="status-chip late">Late</span>
+              <span class="status-chip warning">Partial Payment</span>
+              <span class="status-chip missing">Balance Due</span>
+              <span class="status-chip uploaded">Income Updated</span>
+              <span class="status-chip ready">Reminder Cleared</span>
+              <span class="status-chip recurring">Calendar Active</span>
+              <span class="status-chip high">Boss Alert</span>
+            </div>
+
+            <div class="payment-grid" aria-label="Payment status preview cards for 41 N Ellamont St">
+              <article class="payment-card">
+                <h3>Room 1 Rent</h3>
+                <dl class="payment-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Occupant type</dt><dd>Room rental / furnished rental</dd></div>
+                  <div><dt>Amount due</dt><dd>$4,954</dd></div>
+                  <div><dt>Due date</dt><dd>Monthly</dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip paid">Paid</span></dd></div>
+                  <div><dt>Payment method</dt><dd>Zelle / direct payment</dd></div>
+                  <div><dt>Linked invoice</dt><dd>Room 1 Rent Invoice</dd></div>
+                  <div><dt>Income tracker</dt><dd><span class="status-chip uploaded">Updated</span></dd></div>
+                  <div><dt>Calendar reminder</dt><dd><span class="status-chip ready">Cleared</span></dd></div>
+                  <div><dt>Boss Alert</dt><dd>No action needed</dd></div>
+                </dl>
+              </article>
+
+              <article class="payment-card">
+                <h3>Future Guest Booking</h3>
+                <dl class="payment-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Occupant type</dt><dd>Short-term / furnished stay</dd></div>
+                  <div><dt>Amount due</dt><dd>$900</dd></div>
+                  <div><dt>Due date</dt><dd>Before check-in</dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                  <div><dt>Payment method</dt><dd>Future payment integration</dd></div>
+                  <div><dt>Linked invoice</dt><dd>Future Guest Balance</dd></div>
+                  <div><dt>Income tracker</dt><dd>Not posted yet</dd></div>
+                  <div><dt>Calendar reminder</dt><dd><span class="status-chip recurring">Calendar Active</span></dd></div>
+                  <div><dt>Boss Alert</dt><dd><span class="status-chip high">Pending payment before check-in</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="payment-card">
+                <h3>Damage / Cleaning Charge</h3>
+                <dl class="payment-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Occupant type</dt><dd>Furnished rental guest</dd></div>
+                  <div><dt>Amount due</dt><dd>$150</dd></div>
+                  <div><dt>Due date</dt><dd>After move-out inspection</dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip missing">Balance Due</span></dd></div>
+                  <div><dt>Payment method</dt><dd>Not confirmed</dd></div>
+                  <div><dt>Linked invoice</dt><dd>Damage / Cleaning Charge</dd></div>
+                  <div><dt>Income tracker</dt><dd><span class="status-chip pending">Pending</span></dd></div>
+                  <div><dt>Calendar reminder</dt><dd><span class="status-chip recurring">Calendar Active</span></dd></div>
+                  <div><dt>Boss Alert</dt><dd><span class="status-chip high">Follow up needed</span></dd></div>
+                </dl>
+              </article>
+
+              <article class="payment-card">
+                <h3>Partial Payment Example</h3>
+                <dl class="payment-meta">
+                  <div><dt>Property</dt><dd>41 N Ellamont St</dd></div>
+                  <div><dt>Occupant type</dt><dd>Room rental / furnished rental</dd></div>
+                  <div><dt>Amount due</dt><dd>$900</dd></div>
+                  <div><dt>Amount paid</dt><dd>$500</dd></div>
+                  <div><dt>Remaining balance</dt><dd>$400</dd></div>
+                  <div><dt>Payment status</dt><dd><span class="status-chip warning">Partial Payment</span></dd></div>
+                  <div><dt>Calendar reminder</dt><dd><span class="status-chip recurring">Calendar Active</span></dd></div>
+                  <div><dt>Boss Alert</dt><dd><span class="status-chip high">Balance still due</span></dd></div>
+                </dl>
+              </article>
+            </div>
+
+            <div class="payment-flow-card" aria-labelledby="payment-automatic-status-title">
+              <h3 id="payment-automatic-status-title">Automatic Status Updates</h3>
+              <ul class="mini-list">
+                <li>Paid payments update the Income &amp; Rent Tracker</li>
+                <li>Paid invoices clear calendar payment reminders</li>
+                <li>Pending payments stay on the Landlord Calendar</li>
+                <li>Late payments create Boss Alerts</li>
+                <li>Partial payments show remaining balance</li>
+                <li>Guest balances connect to invoices</li>
+                <li>Payment status connects to tenant and guest records</li>
+                <li>Future payment integrations can connect to this portal</li>
+              </ul>
+            </div>
+
+            <div class="payment-note" aria-label="Payment status portal compliance note">
+              <h3>Tracking preview only</h3>
+              <p>Payment Status Portal is a tracking preview only. No real payment processing, bank connection, or card collection is active in this static MVP.</p>
+            </div>
+          </section>
+
           <section class="card document-section" id="lease-document-vault" aria-labelledby="lease-document-vault-title">
             <div class="section-header">
               <div>
@@ -3362,7 +3626,7 @@
         </main>
 
         <footer>
-          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real invoicing, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
+          Static dashboard prototype only — no login, backend, database, real tenant portal, messaging, tenant screening, real work order submissions, real invoicing, real payment processing, ACH, Stripe, PayPal, Zelle integration, bank connections, credit card fields, real file uploads, document storage, e-signature, real calendar syncing, real automation, tax filing, payments, payment processing, uploads, or submitting forms are included.
         </footer>
       </div>
     </div>
