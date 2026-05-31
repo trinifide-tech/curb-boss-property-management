@@ -493,7 +493,8 @@
       .inspection-command,
       .repair-tracker,
       .receipt-tracker,
-      .tax-dashboard {
+      .tax-dashboard,
+      .roadmap-section {
         grid-column: span 12;
         padding: clamp(1.2rem, 3vw, 2rem);
       }
@@ -598,7 +599,8 @@
       .inspection-grid,
       .repair-grid,
       .receipt-grid,
-      .tax-deduction-grid {
+      .tax-deduction-grid,
+      .roadmap-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.9rem;
@@ -615,7 +617,8 @@
       .repair-card,
       .receipt-card,
       .tax-deduction-card,
-      .tax-checklist {
+      .tax-checklist,
+      .roadmap-card {
         padding: 1rem;
         border: 1px solid var(--border);
         border-radius: 1.1rem;
@@ -629,7 +632,8 @@
       .repair-card h3,
       .receipt-card h3,
       .tax-deduction-card h3,
-      .tax-checklist h3 {
+      .tax-checklist h3,
+      .roadmap-card h3 {
         margin-bottom: 0.75rem;
         color: var(--deep-green);
         font-size: 1.05rem;
@@ -802,6 +806,48 @@
         background: var(--yellow);
       }
 
+
+
+      .roadmap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .roadmap-card {
+        display: flex;
+        min-height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .roadmap-card p {
+        margin-bottom: 1rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .roadmap-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: auto;
+      }
+
+      .status-chip.integration {
+        background: #edf2ff;
+        color: #243b73;
+      }
+
+      .status-chip.integration::before {
+        background: #5571c4;
+      }
+
+      .status-chip.automation {
+        background: var(--yellow-soft);
+      }
+
+      .status-chip.automation::before {
+        background: var(--yellow);
+      }
 
       .tax-checklist {
         margin-top: 1rem;
@@ -1144,6 +1190,7 @@
         .repair-grid,
         .receipt-grid,
         .tax-deduction-grid,
+        .roadmap-grid,
         .tax-categories {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -1197,6 +1244,7 @@
         .repair-grid,
         .receipt-grid,
         .tax-deduction-grid,
+        .roadmap-grid,
         .quick-actions,
         .tax-categories,
         .tax-checklist .mini-list {
@@ -2208,18 +2256,6 @@
                 <span>Tax Organizer Status</span>
                 <strong>In Progress</strong>
               </div>
-              <div class="tax-summary-card">
-                <span>Deduction Categories</span>
-                <strong>9</strong>
-              </div>
-              <div class="tax-summary-card">
-                <span>Missing Receipts</span>
-                <strong>5</strong>
-              </div>
-              <div class="tax-summary-card">
-                <span>Tax Organizer Status</span>
-                <strong>In Progress</strong>
-              </div>
             </div>
 
             <div class="income-badge-row" aria-label="Tax status badge examples">
@@ -2334,231 +2370,108 @@
                 <li>Inspection costs linked to deductions</li>
               </ul>
             </div>
+          </section>
 
-            <div class="income-badge-row" aria-label="Tax status badge examples">
-              <span class="status-chip ready">Deduction Ready</span>
-              <span class="status-chip missing">Needs Receipt</span>
-              <span class="status-chip review">Needs Review</span>
-              <span class="status-chip progress">In Progress</span>
+          <section class="card roadmap-section" id="feature-roadmap" aria-labelledby="feature-roadmap-title">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Coming Soon Modules</p>
+                <h2 id="feature-roadmap-title">Feature Roadmap</h2>
+                <p>Curb Boss is starting as a landlord dashboard for income, expenses, inspections, repairs, receipts, and tax organization. More operational tools will be added in future versions.</p>
+              </div>
+              <div class="section-pill"><span class="status-chip progress">Future Modules Only</span></div>
+            </div>
+
+            <div class="income-badge-row" aria-label="Feature roadmap status badges">
+              <span class="status-chip progress">Coming Soon</span>
+              <span class="status-chip integration">Future Integration</span>
+              <span class="status-chip review">Planning</span>
+              <span class="status-chip automation">Automation</span>
               <span class="status-chip ready">Tax Ready</span>
+              <span class="status-chip recurring">Calendar Linked</span>
+              <span class="status-chip integration">Third-Party Integration</span>
             </div>
 
-            <div class="tax-deduction-grid" aria-label="Deduction category cards">
-              <article class="tax-deduction-card">
-                <h3>Utilities</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$2,684</dd></div>
-                  <div><dt>Includes</dt><dd>BGE, water, internet</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Mostly uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
+            <div class="roadmap-grid" aria-label="Future Curb Boss modules">
+              <article class="roadmap-card">
+                <div>
+                  <h3>Lease &amp; Document Vault</h3>
+                  <p>Store leases, notices, inspection reports, receipts, invoices, photos, property tax bills, vendor records, and compliance documents.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip progress">Coming Soon</span><span class="status-chip ready">Tax Ready</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Cleaning</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$5,200</dd></div>
-                  <div><dt>Includes</dt><dd>Professional cleaners, cleaning supplies, laundry supplies</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Some missing</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Receipt Review</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Tenant &amp; Guest Tracker</h3>
+                  <p>Track occupant status, room/unit, rental type, move-in/move-out notes, notices, issue history, and payment status.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip progress">Coming Soon</span><span class="status-chip review">Planning</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Repairs &amp; Maintenance</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,250</dd></div>
-                  <div><dt>Includes</dt><dd>Plumber, HVAC, flooring review</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Uploaded / pending</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Landlord Calendar</h3>
+                  <p>Track rent due dates, inspections, repairs, cleaning appointments, receipt deadlines, property tax reminders, lease dates, and compliance deadlines.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip recurring">Calendar Linked</span><span class="status-chip progress">Coming Soon</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Inspections</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$450</dd></div>
-                  <div><dt>Includes</dt><dd>Mold, HVAC, safety checks</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip missing">Needs Receipt</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Smart Calendar Auto-Load</h3>
+                  <p>Automatically place dated tasks from rent, inspections, repairs, work orders, receipts, leases, and tax reminders onto the landlord calendar.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip automation">Automation</span><span class="status-chip recurring">Calendar Linked</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Supplies</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$830</dd></div>
-                  <div><dt>Includes</dt><dd>Paper towels, toilet paper, trash bags, sheets, towels, curtains</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Some missing</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Work Orders</h3>
+                  <p>Create and track maintenance issues, vendor assignments, repair appointments, quotes, receipts, tax categories, and completion status.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip progress">Coming Soon</span><span class="status-chip ready">Tax Ready</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Mileage</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,237</dd></div>
-                  <div><dt>Includes</dt><dd>Oct, Nov, Dec mileage records</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip review">Mileage log needed</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Invoices</h3>
+                  <p>Track vendor invoices, contractor bills, tenant invoices, guest balances, damage charges, payment status, and tax categories.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip review">Planning</span><span class="status-chip ready">Tax Ready</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Property Taxes</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,679.70</dd></div>
-                  <div><dt>Includes</dt><dd>Baltimore City property tax installments</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Payment Status Portal</h3>
+                  <p>Track paid, unpaid, pending, partial payment, late payment, balance due, and income updated status. Future status tracking only — not payment processing yet.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip progress">Coming Soon</span><span class="status-chip low">Not Payment Processing</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Security</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$348</dd></div>
-                  <div><dt>Includes</dt><dd>Security monitoring</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Marketing &amp; Listing Center</h3>
+                  <p>Create listing copy, track where rentals are posted, manage vacancy marketing, preview direct-booking pages, and track inquiries.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip review">Planning</span><span class="status-chip progress">Coming Soon</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Outdoor / Property Care</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$470</dd></div>
-                  <div><dt>Includes</dt><dd>Grass cutting, snow removal, weed control</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
-              </article>
-            </div>
-
-            <div class="tax-checklist" aria-labelledby="tax-prep-checklist-title">
-              <h3 id="tax-prep-checklist-title">Tax Prep Checklist</h3>
-              <ul class="mini-list">
-                <li>Income totals reviewed</li>
-                <li>Expense categories reviewed</li>
-                <li>Missing receipts flagged</li>
-                <li>Mileage log needed</li>
-                <li>Property tax records saved</li>
-                <li>Repairs linked to receipts</li>
-                <li>Inspection costs linked to deductions</li>
-              </ul>
-            </div>
-
-            <div class="income-badge-row" aria-label="Tax status badge examples">
-              <span class="status-chip ready">Deduction Ready</span>
-              <span class="status-chip missing">Needs Receipt</span>
-              <span class="status-chip review">Needs Review</span>
-              <span class="status-chip progress">In Progress</span>
-              <span class="status-chip ready">Tax Ready</span>
-            </div>
-
-            <div class="tax-deduction-grid" aria-label="Deduction category cards">
-              <article class="tax-deduction-card">
-                <h3>Utilities</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$2,684</dd></div>
-                  <div><dt>Includes</dt><dd>BGE, water, internet</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Mostly uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Tenant Screening Integration</h3>
+                  <p>Future third-party integration for application status, credit check status, background check status, eviction history status, income verification, ID verification, decision status, and documentation. No Social Security numbers are shown or stored in this static preview.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip integration">Third-Party Integration</span><span class="status-chip integration">Future Integration</span></div>
               </article>
 
-              <article class="tax-deduction-card">
-                <h3>Cleaning</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$5,200</dd></div>
-                  <div><dt>Includes</dt><dd>Professional cleaners, cleaning supplies, laundry supplies</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Some missing</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Receipt Review</span></dd></div>
-                </dl>
+              <article class="roadmap-card">
+                <div>
+                  <h3>Smart Receipt Sorting</h3>
+                  <p>Group receipts by actual expense date, property, category, tax status, and receipt status, even when receipts are entered late.</p>
+                </div>
+                <div class="roadmap-badges"><span class="status-chip automation">Automation</span><span class="status-chip ready">Tax Ready</span></div>
               </article>
-
-              <article class="tax-deduction-card">
-                <h3>Repairs &amp; Maintenance</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,250</dd></div>
-                  <div><dt>Includes</dt><dd>Plumber, HVAC, flooring review</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Uploaded / pending</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Inspections</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$450</dd></div>
-                  <div><dt>Includes</dt><dd>Mold, HVAC, safety checks</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip pending">Pending</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip missing">Needs Receipt</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Supplies</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$830</dd></div>
-                  <div><dt>Includes</dt><dd>Paper towels, toilet paper, trash bags, sheets, towels, curtains</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip missing">Some missing</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Mileage</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,237</dd></div>
-                  <div><dt>Includes</dt><dd>Oct, Nov, Dec mileage records</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip review">Mileage log needed</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Property Taxes</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$1,679.70</dd></div>
-                  <div><dt>Includes</dt><dd>Baltimore City property tax installments</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Security</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$348</dd></div>
-                  <div><dt>Includes</dt><dd>Security monitoring</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip uploaded">Uploaded</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
-              </article>
-
-              <article class="tax-deduction-card">
-                <h3>Outdoor / Property Care</h3>
-                <dl class="tax-deduction-meta">
-                  <div><dt>Amount tracked</dt><dd>$470</dd></div>
-                  <div><dt>Includes</dt><dd>Grass cutting, snow removal, weed control</dd></div>
-                  <div><dt>Receipt status</dt><dd><span class="status-chip review">Needs Review</span></dd></div>
-                  <div><dt>Tax status</dt><dd><span class="status-chip ready">Deduction Ready</span></dd></div>
-                </dl>
-              </article>
-            </div>
-
-            <div class="tax-checklist" aria-labelledby="tax-prep-checklist-title">
-              <h3 id="tax-prep-checklist-title">Tax Prep Checklist</h3>
-              <ul class="mini-list">
-                <li>Income totals reviewed</li>
-                <li>Expense categories reviewed</li>
-                <li>Missing receipts flagged</li>
-                <li>Mileage log needed</li>
-                <li>Property tax records saved</li>
-                <li>Repairs linked to receipts</li>
-                <li>Inspection costs linked to deductions</li>
-              </ul>
             </div>
           </section>
         </main>
